@@ -1,0 +1,51 @@
+#BG { /* for the main content block */
+    background-color: rgba(0, 0, 0, .54);
+    box-shadow: 0px 0px 10px 3px black;
+    /*width: 38%;*/
+    height: 100%;
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+#img1 {
+    background-image: url('www.gtplanet2.jpg');
+    background-color: #333;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top left;
+}
+
+#card {
+    height: 300px;
+    width: 180px;
+    border-radius: 15px;
+    padding: 0px;
+  }
+
+#imglink {
+  background-color: rgba(0, 0, 0, 100);
+  padding: 0px;
+  border-radius: 50%;
+  max-width: 60px;
+  max-height: 60px;
+}
+
+#imgInLink {
+
+}
+
+#pfp {
+  border-radius: 50%;
+  max-width: 33%;
+  max-height: 33%;
+  margin: auto;
+  margin-top: 60px;
+  box-shadow: 2px 2px 3px 1px #222;
+}
+
+#pfp:hover {
+  scale: 1.05;
+  transition-duration: 250ms;
+}
