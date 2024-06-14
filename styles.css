@@ -25,12 +25,17 @@
     padding: 0px;
   }
 
+#carousel {
+    
+}
+
 #imglink {
-  background-color: rgba(0, 0, 0, 100);
+  background-color: rgba(0, 0, 0, 0);
   padding: 0px;
-  border-radius: 50%;
-  max-width: 60px;
-  max-height: 60px;
+  border-radius: 10%;
+  max-width: 100px;
+  max-height: 100px;
+  filter: invert();
 }
 
 #imgInLink {
@@ -58,7 +63,7 @@ body{
     font-family: 'Arial';
     color: #dddddd;
     text-align: center;
-    height: 100%;
+    height: auto;
 }
 
 h1, h2{
@@ -81,7 +86,7 @@ hr {
 }
 
 a:link, a:visited {
-    background-color: #333;
+    /*background-color: #333;*/
     color: white;
     padding: 15px 25px;
     text-align: center;
