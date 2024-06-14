@@ -23,9 +23,12 @@
     width: 180px;
     border-radius: 15px;
     padding: 0px;
+    background-color: antiquewhite;
+    display: inline-block;
   }
 
 #carousel {
+    display: inline-block;
     
 }
 
