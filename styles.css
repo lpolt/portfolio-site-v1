@@ -35,7 +35,7 @@
   border-radius: 10%;
   max-width: 100px;
   max-height: 100px;
-  filter: invert();
+  filter: invert(1);
 }
 
 #imgInLink {
@@ -68,8 +68,8 @@ body{
 
 h1, h2{
     font-family: Arial;
-    font-size: 48px;
-    font-weight: 600;
+    font-size: 52px;
+    font-weight: 500;
     padding-top: 20px;
 }
 
@@ -85,8 +85,19 @@ hr {
     margin: 60px;
 }
 
+a {
+    background-color: rgba(0, 0, 0, 0);
+    padding: 0px;
+    border-radius: 10%;
+    max-width: 100px;
+    max-height: 100px;
+    display: inline-block;
+    margin-top: 30px;
+}
+
+/*
 a:link, a:visited {
-    /*background-color: #333;*/
+    background-color: #333;
     color: white;
     padding: 15px 25px;
     text-align: center;
@@ -100,7 +111,8 @@ a:link, a:visited {
   a:hover, a:active {
     background-color: #111111;
   }
-
+  */
+   
 iframe {
     max-width: 100%;
     max-height: 100%;
