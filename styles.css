@@ -29,7 +29,7 @@
 
 #carousel {
     display: inline-block;
-    
+    margin: auto;
 }
 
 #imglink {
