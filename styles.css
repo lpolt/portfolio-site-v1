@@ -1,4 +1,4 @@
-#BG { /* for the main content block */
+.BG { /* for the main content block */
     background-color: rgba(0, 0, 0, .54);
     box-shadow: 0px 0px 10px 3px black;
     /*width: 38%;*/
@@ -10,7 +10,7 @@
     font-family: arial;
 }
 
-#img1 {
+.img1 {
     background-image: url('bridge-1.jpg');
     background-color: #333;
     background-size: cover;
@@ -18,7 +18,7 @@
     background-position: top left;
 }
 
-#card {
+.card {
     height: 300px;
     width: 180px;
     border-radius: 15px;
@@ -27,25 +27,27 @@
     display: inline-block;
   }
 
-#carousel {
+.carousel {
     display: inline-block;
     margin: auto;
 }
 
-#imglink {
+.imglink {
   background-color: rgba(0, 0, 0, 0);
   padding: 0px;
   border-radius: 10%;
   max-width: 100px;
   max-height: 100px;
   filter: invert(1);
+  box-shadow: 0px 0px 10px 3px white;
+  filter: drop-shadow(1);
 }
 
-#imgInLink {
+.imgInLink {
   
 }
 
-#pfp {
+.pfp {
   border-radius: 50%;
   max-width: 27%;
   max-height: 27%;
@@ -54,7 +56,7 @@
   box-shadow: 2px 2px 3px 1px #222;
 }
 
-#pfp:hover {
+.pfp:hover {
   scale: 1.03;
   transition-duration: 100ms;
 }
