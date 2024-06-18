@@ -24,9 +24,17 @@
     border-radius: 15px;
     padding: 0px;
     background-color: antiquewhite;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .cardText {
     text-align: center;
     font-size: 28px;
     font-family: Arial;
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
   }
 
 .carousel {
