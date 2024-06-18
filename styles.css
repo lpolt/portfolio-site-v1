@@ -1,9 +1,13 @@
 .BG { /* for the main content block */
-    background-color: rgba(0, 0, 0, .54);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, .54);
     box-shadow: 0px 0px 10px 3px black;
     /*width: 38%;*/
     height: 100%;
-    max-width: 800px;
+    width: 800px;
     margin: auto;
     overflow: hidden;
     border-radius: 15px;
@@ -19,8 +23,8 @@
 }
 
 .card {
-    height: 300px;
-    width: 180px;
+    min-height: 300px;
+    min-width: 180px;
     border-radius: 15px;
     padding: 0px;
     background-color: antiquewhite;
@@ -32,10 +36,11 @@
     text-align: center;
     font-size: 28px;
     font-family: Arial;
-    color: #dddddd;
-    position: absolute;
-    bottom: 8px;
-    right: 16px;
+    color: #222;
+    text-shadow: #222;
+    text-decoration-line: none;
+    position: relative;
+    bottom: 20px;
   }
 
 .carousel {
