@@ -1,19 +1,20 @@
-.BG { /* for the main content block */
+.FG { /* for the main content block */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, .54);
+    background-color: rgba(0, 0, 0, .54);
     box-shadow: 0px 0px 10px 3px black;
     /*width: 38%;*/
     height: 95%;
     width: 800px;
     margin: auto;
-    overflow: hidden;
+    /* overflow: hidden; */
     border-radius: 15px;
     font-family: arial;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 40px;
 }
 
 .img1 {
@@ -26,12 +27,14 @@
 
 .card {
     min-height: 300px;
-    min-width: 180px;
+    min-width: 200px;
     border-radius: 15px;
     padding: 0px;
     background-color: antiquewhite;
     background-size: cover;
     background-attachment: fixed;
+    margin: auto;
+    box-shadow: 2px 2px 3px 1px #222;
   }
 
   .cardText {
@@ -46,7 +49,10 @@
   }
 
 .carousel {
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: center;
     margin: auto;
     margin-bottom: 60px;
 }
@@ -106,6 +112,7 @@ hr {
     height: 3px;
     background-color: bisque;
     margin: 60px;
+    align: center;
 }
 
 a {
