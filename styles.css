@@ -6,12 +6,14 @@
   background-color: rgba(0, 0, 0, .54);
     box-shadow: 0px 0px 10px 3px black;
     /*width: 38%;*/
-    height: 100%;
+    height: 95%;
     width: 800px;
     margin: auto;
     overflow: hidden;
     border-radius: 15px;
     font-family: arial;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .img1 {
@@ -39,8 +41,8 @@
     color: #222;
     text-shadow: #222;
     text-decoration-line: none;
-    position: relative;
-    bottom: 20px;
+    /* position: relative;
+    bottom: 20px; */
   }
 
 .carousel {
