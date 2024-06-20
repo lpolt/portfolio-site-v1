@@ -68,6 +68,11 @@
   filter: drop-shadow(1);
 }
 
+.imglink:hover {
+  scale: 1.03;
+  transition-duration: 100ms;
+}
+
 .imgInLink {
 }
 
@@ -85,7 +90,25 @@
   transition-duration: 100ms;
 }
 
+/*############################# RWS #############################*/
+
+@media (max-width: 800px) {
+  /* change to 3 wide rectangles, arranged vertically*/
+  .carousel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .card {
+    max-height: 200px;
+    max-width: 350px;
+  }
+
+}
+
 /*##########################################################*/
+
 
 body {
   display: flex;
