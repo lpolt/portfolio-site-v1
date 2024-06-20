@@ -1,60 +1,61 @@
-.FG { /* for the main content block */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, .54);
-    box-shadow: 0px 0px 10px 3px black;
-    /*width: 38%;*/
-    height: 95%;
-    width: 800px;
-    margin: auto;
-    /* overflow: hidden; */
-    border-radius: 15px;
-    font-family: arial;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    padding: 40px;
+.FG {
+  /* for the main content block */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.54);
+  box-shadow: 0px 0px 10px 3px black;
+  /*width: 38%;*/
+  height: 95%;
+  width: 800px;
+  margin: auto;
+  /* overflow: hidden; */
+  border-radius: 15px;
+  font-family: arial;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 40px;
 }
 
 .img1 {
-    background-image: url('bridge-1.jpg');
-    background-color: #333;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: top left;
+  background-image: url("bridge-1.jpg");
+  background-color: #333;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: top left;
 }
 
 .card {
-    min-height: 300px;
-    min-width: 200px;
-    border-radius: 15px;
-    padding: 0px;
-    background-color: antiquewhite;
-    background-size: cover;
-    background-attachment: fixed;
-    margin: auto;
-    box-shadow: 2px 2px 3px 1px #222;
-  }
+  min-height: 300px;
+  min-width: 200px;
+  border-radius: 15px;
+  padding: 0px;
+  background-color: antiquewhite;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: auto;
+  box-shadow: 2px 2px 3px 1px #222;
+}
 
-  .cardText {
-    text-align: center;
-    font-size: 28px;
-    font-family: Arial;
-    color: #222;
-    text-shadow: #222;
-    text-decoration-line: none;
-    /* position: relative;
+.cardText {
+  text-align: center;
+  font-size: 28px;
+  font-family: Arial;
+  color: #222;
+  text-shadow: #222;
+  text-decoration-line: none;
+  /* position: relative;
     bottom: 20px; */
-  }
+}
 
 .carousel {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    justify-content: center;
-    margin: auto;
-    margin-bottom: 60px;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 60px;
 }
 
 .imglink {
@@ -68,7 +69,6 @@
 }
 
 .imgInLink {
-  
 }
 
 .pfp {
@@ -87,42 +87,45 @@
 
 /*##########################################################*/
 
-body{
-    background-color: dimgray;
-    font-family: 'Arial';
-    color: #dddddd;
-    text-align: center;
-    height: auto;
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: dimgray;
+  font-family: "Arial";
+  color: #dddddd;
+  text-align: center;
+  height: auto;
 }
 
-h1, h2{
-    font-family: Arial;
-    font-size: 52px;
-    font-weight: 500;
-    padding-top: 20px;
+h1,
+h2 {
+  font-family: Arial;
+  font-size: 52px;
+  font-weight: 500;
+  padding-top: 20px;
 }
 
-p{
-    font-size: 24px;
-
+p {
+  font-size: 24px;
 }
 
 hr {
-    width: 80%;
-    height: 3px;
-    background-color: bisque;
-    margin: 60px;
-    align: center;
+  width: 80%;
+  height: 3px;
+  background-color: bisque;
+  margin: 60px;
+  align: center;
 }
 
 a {
-    background-color: rgba(0, 0, 0, 0);
-    padding: 0px;
-    border-radius: 10%;
-    max-width: 100px;
-    max-height: 100px;
-    display: inline-block;
-    margin-top: 30px;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0px;
+  border-radius: 10%;
+  max-width: 100px;
+  max-height: 100px;
+  display: inline-block;
+  margin-top: 30px;
 }
 
 /*
@@ -142,17 +145,16 @@ a:link, a:visited {
     background-color: #111111;
   }
   */
-   
+
 iframe {
-    max-width: 100%;
-    max-height: 100%;
-    margin: 0px;
-    border-radius: 15px;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0px;
+  border-radius: 15px;
 }
 
-
 footer {
-position: relative;
-bottom: 10px;
-justify-content: center;
+  position: relative;
+  bottom: 10px;
+  justify-content: center;
 }
