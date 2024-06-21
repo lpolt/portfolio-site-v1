@@ -41,6 +41,7 @@
   align-content: end;
   text-decoration: none;
   text-shadow: 0px 0px 5px #222;
+  font-size: 24px;
   color: antiquewhite;
 }
 
@@ -58,6 +59,7 @@
 .carousel {
   display: flex;
   flex-direction: row;
+  padding: 0px;
   gap: 2rem;
   justify-content: center;
   margin: auto;
