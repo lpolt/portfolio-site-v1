@@ -96,6 +96,8 @@ body {
   height: 130px;
   border-radius: 50%;
   border: 5px dotted #c3c0a0;
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 .avatar:hover {
