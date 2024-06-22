@@ -21,7 +21,27 @@ body {
   font-weight: 400;
   font-style: normal;
 }
-/* end resets */
+
+/* Animations */
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(1deg);
+  }
+  50% {
+    transform: rotate(-1deg);
+  }
+  75% {
+    transform: rotate(1deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* site styles */
 
 .container {
   width: 100%;
@@ -64,8 +84,10 @@ body {
   border-radius: 5px;
 }
 
-.profile {
+.profile-section {
   display: flex;
+  flex-direction: row;
+  gap: 16px;
   align-items: flex-start;
 }
 
@@ -73,13 +95,7 @@ body {
   width: 130px;
   height: 130px;
   border-radius: 50%;
-  border: 4px solid
-    linear-gradient(
-      90deg,
-      rgba(195, 192, 160, 1) 0%,
-      rgba(135, 241, 255, 1) 50%,
-      rgba(187, 107, 0, 1) 100%
-    );
+  border: 5px dotted #c3c0a0;
 }
 
 .avatar:hover {
@@ -111,6 +127,63 @@ body {
 
 .icons a:hover {
   color: #000;
+}
+
+.whoami-section,
+.mywork-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: center;
+}
+
+.projects {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 16px;
+}
+
+.project-card {
+  width: 200px;
+  min-width: 200px;
+  max-width: 200px;
+  height: 300px;
+  min-height: 300px;
+  max-height: 300px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+  color: #4c443c;
+}
+
+.project-card:hover {
+  animation: wiggle 0.5s;
+}
+
+.drem-bg {
+  background-image: url('images/drem-labs-background.jpg');
+  background-size: cover;
+}
+
+.blockchainatscu-bg {
+  background-image: url('images/blockchain-at-scu-background.png');
+  background-size: cover;
+  background-color: antiquewhite;
+}
+
+.opal-bg {
+  background-image: url('images/opal-background.png');
+  background-size: cover;
+}
+
+.mark-bg {
+  background-color: #f2c078;
 }
 
 /* Utility Classes... */
