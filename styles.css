@@ -51,16 +51,16 @@
   transition-duration: 100ms;
 }
 
-.cardText {
+/* .cardText {
   text-align: center;
   font-size: 28px;
   font-family: Arial;
   color: #222;
   text-shadow: #222;
   text-decoration-line: none;
-  /* position: relative;
-    bottom: 20px; */
-}
+    position: relative;
+    bottom: 20px;
+} */
 
 .carousel {
   display: flex;
