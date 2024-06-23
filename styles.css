@@ -46,6 +46,11 @@
   color: white;
 }
 
+.card:hover {
+  scale: 1.03;
+  transition-duration: 100ms;
+}
+
 .cardText {
   text-align: center;
   font-size: 28px;
@@ -107,11 +112,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: fit-content;
   }
 
   .card {
     max-height: 250px;
-    max-width: 550px;
+    max-width: 90%;
   }
 
   body{
