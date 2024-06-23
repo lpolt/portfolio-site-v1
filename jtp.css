@@ -9,7 +9,6 @@ html,
 body {
   height: 100%;
   width: 100%;
-  overflow: hidden;
 }
 
 body {
@@ -20,10 +19,15 @@ body {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-style: normal;
+  background-image: url('assets/images/bixby-bridge-viewport-background.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* Animations */
-@keyframes wiggle {
+/* @keyframes wiggle {
   0% {
     transform: rotate(0deg);
   }
@@ -39,22 +43,17 @@ body {
   100% {
     transform: rotate(0deg);
   }
-}
+} */
 
 /* site styles */
 
 .container {
   width: 100%;
   height: 100%;
-  background-image: url('bridge-1.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
   padding: 32px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  /* text-align: center; */
   color: white;
 }
 
@@ -70,6 +69,18 @@ body {
   align-items: center;
   /* max-height: 90vh;
   overflow-x: scroll; */
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+  }
+  .card {
+    /* width: 95%; */
+    width: 95%;
+    min-width: 95%;
+    padding: 16px 32px; /* Adjust padding for smaller screens */
+  }
 }
 
 .separator {
@@ -113,6 +124,21 @@ body {
 .info h1 {
   font-size: 42px;
   font-weight: 800;
+
+  /* background: linear-gradient(
+    90deg,
+    rgba(195, 192, 160, 1) 0%,
+    rgba(135, 241, 255, 1) 25%,
+    rgba(187, 107, 0, 1) 75%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent; */
+
+  /* -webkit-text-stroke: 2px black; */
+  color: white;
+  text-shadow: 3px 3px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000,
+    -2px 2px 0 #000, 2px 2px 0 #000;
 }
 
 .info h2 {
@@ -120,40 +146,65 @@ body {
   font-weight: 400;
 }
 
+.icons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
 .icons a {
-  margin-right: 15px;
   color: #fff;
   text-decoration: none;
   font-size: 24px;
+  display: inline-blocl;
+  transition: transform 0.2s ease-in-out;
 }
 
 .icons a:hover {
-  color: #000;
+  transform: scale(1.2);
 }
 
 .whoami-section,
-.mywork-section {
+.mywork-section,
+.myskills-section {
   display: flex;
   flex-direction: column;
   gap: 16px;
   text-align: center;
 }
 
+.skills-table {
+  border-collapse: separate;
+  width: 100%;
+}
+/* tr:nth-child(even) {
+    background-color: #dddddd;
+  } */
+.skills-table td {
+  border: 2px solid rgb(0, 0, 0, 0);
+  background-color: rgba(155, 155, 155, 0.5);
+  padding: 8px;
+  border-radius: 4px;
+}
+
 .projects {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
 }
 
 .project-card {
-  width: 200px;
-  min-width: 200px;
-  max-width: 200px;
-  height: 300px;
-  min-height: 300px;
-  max-height: 300px;
+  width: 175px;
+  min-width: 175px;
+  max-width: 175px;
+  height: 250px;
+  min-height: 250px;
+  max-height: 250px;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
   padding: 16px;
@@ -162,25 +213,40 @@ body {
   gap: 8px;
   cursor: pointer;
   color: #4c443c;
+  transition: transform 0.2s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+    height: 150px;
+    min-height: 150px;
+    max-height: 150px;
+    border-radius: 3px;
+    padding: 8px;
+  }
 }
 
 .project-card:hover {
-  animation: wiggle 0.5s;
+  /* animation: wiggle 0.5s; */
+  transform: scale(1.05);
 }
 
 .drem-bg {
-  background-image: url('images/drem-labs-background.jpg');
+  background-image: url('assets/images/drem-labs-background.jpg');
   background-size: cover;
 }
 
 .blockchainatscu-bg {
-  background-image: url('images/blockchain-at-scu-background.png');
+  background-image: url('assets/images/blockchain-at-scu-background.png');
   background-size: cover;
   background-color: antiquewhite;
 }
 
 .opal-bg {
-  background-image: url('images/opal-background.png');
+  background-image: url('assets/images/opal-background.png');
   background-size: cover;
 }
 
