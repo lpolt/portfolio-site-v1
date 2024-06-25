@@ -39,7 +39,7 @@
 }
 
 .img1 {
-  background-image: url("bridge-1.jpg");
+  background-image: url("src/bridge-1.jpg");
   background-color: #333;
   background-size: cover;
   background-attachment: fixed;
