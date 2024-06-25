@@ -121,8 +121,8 @@
 
 /*############################# RWS #############################*/
 
-@media (max-width: 768px) {
-  /* change to 3 wide rectangles, arranged vertically*/
+/* @media (max-width: 768px) {
+  /* change to 3 wide rectangles, arranged vertically
   .carousel {
     display: flex;
     flex-direction: column;
@@ -135,10 +135,10 @@
   }
 
   .FG {
-    /* width: 95%; */
+    /* width: 95%;
     width: 98%;
     min-width: 98%;
-    padding: 16px 32px; /* Adjust padding for smaller screens */
+    padding: 16px 32px; /* Adjust padding for smaller screens
   }
 
   .card {
@@ -149,7 +149,7 @@
   body{
     overflow: scroll;
   }
-}
+} */
 
 /*##########################################################*/
 
