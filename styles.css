@@ -61,7 +61,7 @@
   width: 200px;
   border-radius: 15px;
   padding: 10px;
-  background-color: antiquewhite;
+  background-color: var(--nearwhite);
   background-size: cover;
   background-attachment: scroll;
   background-position: bottom right;
@@ -180,7 +180,7 @@ body {
   overflow: hidden;
   background-color: dimgray;
   font-family: "Arial";
-  color: #dddddd;
+  color: var(--nearwhite);
   max-height: 100%;
   background-image: url("src/bridge-1.jpg");
   background-size: cover;
@@ -204,7 +204,7 @@ p {
 hr {
   width: 80%;
   height: 3px;
-  background-color: bisque;
+  background-color: var(--tan);
   margin-top: 20px;
 }
 
