@@ -176,7 +176,6 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background-color: dimgray;
   font-family: "Arial";
   color: var(--nearwhite);
   max-height: 100%;
@@ -202,7 +201,7 @@ p {
 hr {
   width: 80%;
   height: 3px;
-  background-color: var(--tan);
+  color: var(--tan);
   margin-top: 20px;
 }
 
