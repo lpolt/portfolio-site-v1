@@ -16,13 +16,13 @@
     }
   
     .container {
-      padding: 16px;
+      padding: 10px;
     }
   
     .FG {
       /* width: 95%; */
-      width: 95%;
-      min-width: 95%;
+      width: 100%;
+      min-width: 100%;
       padding: 5px 5px; /* Adjust padding for smaller screens */
     }
   
