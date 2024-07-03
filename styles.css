@@ -179,7 +179,7 @@ body {
   overflow: hidden;
   font-family: "Arial";
   color: var(--nearwhite);
-  max-height: 100%;
+  
   background-image: url("src/bridge-1.jpg");
   background-size: cover;
   background-attachment: fixed;
