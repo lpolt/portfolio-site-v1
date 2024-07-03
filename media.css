@@ -24,6 +24,11 @@
       padding: 4px 4px; /* Adjust padding for smaller screens */
     }
   
+    .pfp{
+      max-width: 36%;
+      max-height: 36%;
+    }
+
     .card {
       height: 250px;
       width: 90%;
