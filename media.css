@@ -21,9 +21,7 @@
   
     .FG {
       /* width: 95%; */
-      width: 100%;
-      min-width: 100%;
-      padding: 5px 5px; /* Adjust padding for smaller screens */
+      padding: 4px 4px; /* Adjust padding for smaller screens */
     }
   
     .card {
@@ -33,7 +31,7 @@
   
     body{
       overflow: scroll;
-      
+      padding: 0px;
     }
 
 
