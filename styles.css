@@ -14,16 +14,12 @@
   align-items: center;
   background-color: rgba(0, 0, 0, 0.54);
   box-shadow: 0px 0px 10px 3px black;
-  /*width: 38%;*/
-  padding: 10px;
   height: 95%;
-  max-width: 95%;
+  max-width: 98%;
   min-width: 700px;
-  
-  /* overflow: hidden; */
   border-radius: 15px;
   font-family: arial;
-  padding: 20px;
+  padding: 30px;
 }
 
 .container-1 {
