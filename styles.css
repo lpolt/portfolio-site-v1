@@ -112,11 +112,11 @@
 .pfp {
   flex-grow: 2;
   border-radius: 50%;
-  max-width: 27%;
-  max-height: 27%;
+  width: 27%;
+  height: 27%;
   margin: auto;
   margin-top: 20px;
-  box-shadow: 2px 2px 3px 1px #222;
+  box-shadow: 2px 2px 2px 1px #222;
 }
 
 .pfp:hover {
