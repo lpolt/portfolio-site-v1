@@ -14,6 +14,11 @@
       justify-content: center;
       width: fit-content;
     }
+
+    .imglink{
+      max-width: 200px;
+      max-height: 200px;
+    }
   
     .container {
       padding: 10px;
@@ -27,6 +32,7 @@
     .pfp{
       max-width: 36%;
       max-height: 36%;
+      flex-grow: 2;
     }
 
     .card {
