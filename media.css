@@ -1,6 +1,6 @@
 /*############################# RWS #############################*/
 
-@media (max-width: 320px) {
+@media (max-width: 768px) {
     
   * {
 
@@ -12,7 +12,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      width: fit-content;
+      width: 80%;
     }
 
     .imglink{
@@ -27,6 +27,8 @@
     .FG {
       /* width: 95%; */
       padding: 4px 4px; /* Adjust padding for smaller screens */
+      margin-left: 10px;
+      margin-right: 10px;
     }
   
     .pfp{
