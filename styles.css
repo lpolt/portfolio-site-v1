@@ -16,7 +16,8 @@
   box-shadow: 0px 0px 10px 3px black;
   height: 95%;
   max-width: 98%;
-  min-width: 700px;
+  /* work on width*/
+  min-width: 900px;
   border-radius: 15px;
   font-family: arial;
   padding: 30px;
