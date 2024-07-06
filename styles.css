@@ -43,6 +43,17 @@
   overflow: auto;
 }
 
+.container-3 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-basis: content;
+  overflow: auto;
+}
+
 /* .img1 {
   background-image: url("src/bridge-1.jpg");
   background-color: #333;
