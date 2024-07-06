@@ -35,6 +35,7 @@
       max-width: 36%;
       max-height: 36%;
       flex-grow: 2;
+      aspect-ratio: 1/1;
     }
 
     .card {
