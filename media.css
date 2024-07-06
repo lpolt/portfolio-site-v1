@@ -54,8 +54,14 @@
     }
 
     .p {
-
+      font-size: 38px;
     }
+
+    h1,
+h2 {
+  font-size: 72px;
+  margin-top: 15px;
+}
 
 
   }
