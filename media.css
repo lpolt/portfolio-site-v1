@@ -33,7 +33,7 @@
   
     .FG {
       /* width: 95%; */
-      padding: 4px 4px; /* Adjust padding for smaller screens */
+      padding: 10px; /* Adjust padding for smaller screens */
       margin-left: 10px;
       margin-right: 10px;
     }
@@ -41,7 +41,6 @@
     .pfp{
       width: 240px;
       height: 240px;
-      flex-grow: 2;
     }
 
     .card {
