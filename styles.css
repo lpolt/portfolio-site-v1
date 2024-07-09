@@ -124,10 +124,9 @@
 
 .pfp {
   border-radius: 50%;
-  width: 27%;
-  height: 27%;
+  width: 227px;
+  height: 227px;
   margin: auto;
-  margin-top: 20px;
   box-shadow: 2px 2px 2px 1px #222;
 }
 
