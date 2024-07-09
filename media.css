@@ -33,7 +33,10 @@
   
     .FG {
       /* width: 95%; */
-      padding: 10px; /* Adjust padding for smaller screens */
+      padding-left: 10px; /* Adjust padding for smaller screens */
+      padding-right: 10px;
+      padding-top: 20px;
+      padding-bottom: 20px;
       margin-left: 10px;
       margin-right: 10px;
     }
@@ -58,8 +61,8 @@
       font-size: 38px;
     }
 
-    h1,
-h2 {
+    h1, 
+    h2 {
   font-size: 72px;
   margin-top: 15px;
 }
