@@ -149,9 +149,7 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  font-family: "Arial";
   color: var(--nearwhite);
-  
   background-image: url("src/bridge-1.jpg");
   background-size: cover;
   background-attachment: fixed;
