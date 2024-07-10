@@ -145,7 +145,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow: auto;
   color: var(--nearwhite);
   background-image: url("src/bridge-1.jpg");
   background-size: cover;
