@@ -141,6 +141,7 @@
 }
 
 .wordmark {
+  display: block;
   margin: 10px;
   background-color: none;
   height: 30px;
