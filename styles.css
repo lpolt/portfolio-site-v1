@@ -74,8 +74,8 @@
   background-position: bottom right;
   margin: auto;
   box-shadow: 2px 2px 3px 1px #222;
-  align-content: flex-start;
-  justify-content: space-around;
+  /* align-content: flex-start;
+  justify-content: space-around; */
   text-decoration: none;
   text-shadow: 0px 0px 8px #000;
   font-size: 20px;
@@ -137,6 +137,11 @@
 
 .bscu-card{
   background-image: url('src/bscu-logo.png');
+  background-position: top center;
+}
+
+.flourish-card{
+  background-image: url('src/flourish-wordmark.png');
   background-position: top center;
 }
 
