@@ -19,7 +19,7 @@
   max-width: 98%;
   /* work on width*/
   min-width: 900px;
-  border-radius: 15px;
+  border-radius: 20px;
   font-family: "Inter", sans-serif;
   padding: 30px;
 }
@@ -66,7 +66,7 @@
 .card {
   height: 300px;
   width: 200px;
-  border-radius: 15px;
+  border-radius: 20px;
   padding: 10px;
   background-color: var(--nearwhite);
   background-size: cover;
