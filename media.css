@@ -55,6 +55,11 @@
       width: 100%;
       background-position: center right;
     }
+
+    .wordmark {
+      height: 50px;
+      width: 290px;
+    }
   
     body{
       overflow: scroll;

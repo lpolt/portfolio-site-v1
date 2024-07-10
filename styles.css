@@ -87,13 +87,6 @@
   transition-duration: 100ms;
 }
 
-.wordmark {
-  margin: auto;
-  background-color: none;
-  height: 50px;
-  width: 150px;
-}
-
 /* .cardText {
   text-align: center;
   font-size: 28px;
@@ -144,7 +137,16 @@
 
 .bscu-card{
   background-image: url('src/bscu-logo.png');
-  background-position: top;
+  background-position: bottom right;
+}
+
+.wordmark {
+  margin: 10px;
+  background-color: none;
+  height: 30px;
+  width: 160px;
+  filter: invert(.85);
+  filter: drop-shadow(1);
 }
 
 
