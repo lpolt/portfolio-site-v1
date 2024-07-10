@@ -87,6 +87,13 @@
   transition-duration: 100ms;
 }
 
+.wordmark {
+  margin: auto;
+  background-color: none;
+  height: 50px;
+  width: 150px;
+}
+
 /* .cardText {
   text-align: center;
   font-size: 28px;
