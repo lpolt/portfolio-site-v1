@@ -55,12 +55,18 @@
     .bscu-card{
       background-image: url('src/bscu-logo-w.png');
       background-position: center;
+      background-size: 110%;
+    }
+
+    .flourish-card{
+      background-image: url('src/flourish-wordmark-w.png');
+      background-position: center;
+      background-size: 90%;
     }
 
     .wordmark {
       height: 50px;
       width: 280px;
-      
     }
   
     body{

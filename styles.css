@@ -142,7 +142,11 @@
 
 .flourish-card{
   background-image: url('src/flourish-wordmark.png');
+  background-color: beige;
   background-position: top center;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .wordmark {
