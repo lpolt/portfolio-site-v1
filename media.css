@@ -1,9 +1,6 @@
 /*############################# RWS #############################*/
 
 @media (max-width: 981px) {
-    
-  * {
-  }
   
   
   /* change to 3 wide rectangles, arranged vertically*/
@@ -16,7 +13,13 @@
     }
 
     .imglink{
-      
+      height: 130px;
+      width: 130px;
+    }
+
+    .bscu-card{
+      background-image: url('src/bscu-logo-w.png');
+      background-position: bottom center;
     }
   
     .container-1 {
@@ -32,7 +35,8 @@
     }
   
     .FG {
-      /* width: 95%; */
+      /* fix clipping */
+      height: fit-content;
       padding-left: 10px; /* Adjust padding for smaller screens */
       padding-right: 10px;
       padding-top: 20px;
@@ -42,8 +46,8 @@
     }
   
     .pfp{
-      width: 240px;
-      height: 240px;
+      width: 250px;
+      height: 250px;
     }
 
     .card {
@@ -65,6 +69,10 @@
     h2 {
   font-size: 72px;
   margin-top: 15px;
+}
+
+hr {
+  height: 3px;
 }
 
 
