@@ -1,10 +1,8 @@
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 
 .FG {
   /* for the main content block */
@@ -20,7 +18,7 @@
   /* work on width*/
   min-width: 900px;
   border-radius: 20px;
-  font-family: "Inter", sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   padding: 30px;
 }
 
@@ -73,7 +71,7 @@
   background-attachment: scroll;
   background-position: bottom right;
   margin: auto;
-  box-shadow: 2px 2px 3px 1px #222;
+  box-shadow: 2px 2px 2px 1px #222;
   /* align-content: flex-start;
   justify-content: space-around; */
   text-decoration: none;
@@ -135,12 +133,12 @@
   transition-duration: 100ms;
 }
 
-.bscu-card{
+.bscu-card {
   background-image: url('src/bscu-logo.png');
   background-position: top center;
 }
 
-.flourish-card{
+.flourish-card {
   background-image: url('src/flourish-wordmark.png');
   background-color: beige;
   background-position: top center;
@@ -155,10 +153,9 @@
   background-color: none;
   height: 30px;
   width: 160px;
-  filter: invert(.85);
+  filter: invert(0.85);
   filter: drop-shadow(1);
 }
-
 
 html,
 body {
@@ -173,7 +170,7 @@ body {
   align-items: center;
   overflow: auto;
   color: var(--nearwhite);
-  background-image: url("src/bridge-1.jpg");
+  background-image: url('src/bridge-1.jpg');
   background-size: cover;
   background-attachment: fixed;
   background-position: top left;
@@ -181,7 +178,6 @@ body {
 
 h1,
 h2 {
-  font-family: Arial;
   font-size: 52px;
   font-weight: 500;
   margin-top: 10px;
