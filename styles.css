@@ -190,8 +190,8 @@ p {
 hr {
   width: 80%;
   height: 4px;
-  color: var(--tan);
-  background-color: var(--tan);
+  color: var(--nearwhite);
+  background-color: var(--nearwhite);
   margin-top: 20px;
 }
 
