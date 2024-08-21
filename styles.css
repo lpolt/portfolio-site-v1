@@ -170,6 +170,7 @@ body {
   align-items: center;
   overflow: auto;
   color: var(--nearwhite);
+  background-color: var(--offGray);
   background-image: url('src/bridge-1.jpg');
   background-size: cover;
   background-attachment: fixed;
