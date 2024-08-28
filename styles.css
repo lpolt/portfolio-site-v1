@@ -157,6 +157,32 @@
   filter: drop-shadow(1);
 }
 
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in-0 {
+  opacity: 0;
+  animation: fadeIn 0.3s ease-in forwards;
+  animation-delay: 0s;
+}
+
+.fade-in-1 {
+  opacity: 0;
+  animation: fadeIn 0.3s ease-in forwards;
+  animation-delay: 0.2s;
+}
+
+.fade-in-2 {
+  opacity: 0;
+  animation: fadeIn 0.3s ease-in forwards;
+  animation-delay: 0.4s;
+}
+
+/*-------------------------------------------*/
+
 html,
 body {
   height: 100%;
