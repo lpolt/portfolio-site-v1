@@ -163,16 +163,22 @@
   }
 }
 
+.fade-in-0 {
+  opacity: 0;
+  animation: fadeIn 0.3s ease-in forwards;
+  animation-delay: 0s;
+}
+
 .fade-in-1 {
   opacity: 0;
-  animation: fadeIn 0.5s ease-in forwards;
-  animation-delay: 0.3s;
+  animation: fadeIn 0.3s ease-in forwards;
+  animation-delay: 0.2s;
 }
 
 .fade-in-2 {
   opacity: 0;
-  animation: fadeIn 0.5s ease-in forwards;
-  animation-delay: 0.6s;
+  animation: fadeIn 0.3s ease-in forwards;
+  animation-delay: 0.4s;
 }
 
 /*-------------------------------------------*/
