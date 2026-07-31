@@ -5,7 +5,7 @@
   "scripts": {
     "convert-images": "node scripts/convert-images.js",
     "check-images": "node scripts/check-images.js"
-  ,
+  },
   "devDependencies": {
     "sharp": "^0.32.0"
   }
