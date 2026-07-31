@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "convert-images": "node scripts/convert-images.js"
-  },
+    "convert-images": "node scripts/convert-images.js",
+    "check-images": "node scripts/check-images.js"
+  ,
   "devDependencies": {
     "sharp": "^0.32.0"
   }
