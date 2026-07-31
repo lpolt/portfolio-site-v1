@@ -197,10 +197,17 @@ body {
   overflow: auto;
   color: var(--nearwhite);
   background-color: var(--offGray);
-  background-image: url('src/bridge-1.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: top left;
+}
+
+/* Background image replaced by responsive <picture> element inserted in the DOM */
+.bg-img {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  pointer-events: none;
 }
 
 h1,
