@@ -4,22 +4,27 @@
   box-sizing: border-box;
 }
 
+/* Main content card — made mobile-first, removed fixed min-width, use tokens for spacing and colors */
 .FG {
   /* for the main content block */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.54);
-  box-shadow: 0px 0px 10px 3px black;
-  /*height: 95%;*/
+  background-color: var(--card-bg); /* use design token */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
   height: fit-content;
-  max-width: 98%;
-  /* work on width*/
-  min-width: 900px;
-  border-radius: 20px;
+  max-width: min(var(--container-max), 98%);
+  width: 95%;
+  border-radius: 16px;
   font-family: 'Nunito Sans', sans-serif;
-  padding: 30px;
+  padding: var(--gap-lg);
+  margin: var(--gap-md);
+}
+
+/* Larger screens: slightly bigger card and spacing */
+@media (min-width: 900px) {
+  .FG { padding: 40px; }
 }
 
 .container-1 {
@@ -61,23 +66,22 @@
   background-position: top left;
 } */
 
+/* Project cards — responsive sizes and improved contrast */
 .card {
   height: 300px;
-  width: 200px;
-  border-radius: 20px;
+  width: min(200px, 45vw); /* responsive width */
+  border-radius: 16px;
   padding: 10px;
   background-color: var(--nearwhite);
   background-size: cover;
   background-attachment: scroll;
-  background-position: bottom right;
+  background-position: center;
   margin: auto;
-  box-shadow: 2px 2px 2px 1px #222;
-  /* align-content: flex-start;
-  justify-content: space-around; */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.5);
   text-decoration: none;
-  text-shadow: 0px 0px 8px #000;
-  font-size: 20px;
-  color: white;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  font-size: 1.1rem;
+  color: #fff;
 }
 
 .card:hover {
@@ -122,15 +126,32 @@
 
 .pfp {
   border-radius: 50%;
-  width: 13rem;
-  height: 13rem;
+  width: 10rem; /* slightly smaller on small screens for better balance */
+  height: 10rem;
   margin: auto;
-  box-shadow: 2px 2px 2px 1px #222;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.5);
 }
 
 .pfp:hover {
-  scale: 1.03;
-  transition-duration: 100ms;
+  transform: scale(1.03);
+  transition-duration: 120ms;
+}
+
+/* Primary CTA button — added to give a clear action on the hero */
+.cta {
+  display: inline-block;
+  margin-top: var(--gap-sm);
+  padding: 0.6rem 1rem;
+  background: linear-gradient(180deg, var(--accent), #d9ad59);
+  color: #111;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.45);
+}
+
+.cta:focus, .cta:hover {
+  transform: translateY(-2px);
 }
 
 .bscu-card {
@@ -195,7 +216,7 @@ body {
   justify-content: center;
   align-items: center;
   overflow: auto;
-  color: var(--nearwhite);
+  color: var(--text); /* use design token for clear contrast */
   background-color: var(--offGray);
 }
 
@@ -206,9 +227,24 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: -2; /* behind the card */
+  pointer-events: none;
+  filter: contrast(0.95) brightness(0.6); /* subtle dimming to improve foreground contrast */
+}
+
+/* Lightweight overlay to ensure text readability on varied imagery */
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.35));
   z-index: -1;
   pointer-events: none;
 }
+
+@media (min-width: 900px) {
+  .bg-img { filter: contrast(1) brightness(0.7); }
+}
+
 
 h1,
 h2 {
