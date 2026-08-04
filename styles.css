@@ -143,9 +143,55 @@ html, body { overflow-x: hidden; }
   display: flex;
   flex-direction: row;
   padding: 0px;
-  gap: 2rem;
+  gap: 1rem;
+  justify-content: flex-start;
+  margin: 0 auto;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory; /* enable scroll snapping */
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  padding-bottom: 8px; /* avoid clipping shadows */
+}
+
+/* Hide native scrollbar while keeping scroll functionality */
+.carousel::-webkit-scrollbar { height: 10px; }
+.carousel { scrollbar-width: thin; }
+.carousel::-webkit-scrollbar { display: none; }
+
+/* Cards are non-shrinking flex items and snap to center */
+.card {
+  scroll-snap-align: center;
+  flex: 0 0 auto;
+  width: min(260px, 40vw);
+  height: 300px; /* default height; reduced on small screens */
+}
+
+/* Navigation buttons overlaid */
+.carousel-prev, .carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: none; /* shown when overflow */
+  align-items: center;
   justify-content: center;
-  margin: auto;
+  cursor: pointer;
+  z-index: 5;
+}
+.carousel-prev { left: 8px; }
+.carousel-next { right: 8px; }
+
+/* Ensure the container that holds carousel is positioned for absolute buttons */
+.container-2 { position: relative; }
+
+@media (max-width: 480px) {
+  .card { height: 260px; }
+  .carousel-prev, .carousel-next { width: 32px; height: 32px; }
 }
 
 .imglink {

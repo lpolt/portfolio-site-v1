@@ -81,21 +81,21 @@
         <div class="mt-1"></div>
 
         <div class="container-2 fade-in-2">
-            <div class="carousel">
+            <button class="carousel-prev" aria-label="Previous projects">‹</button>
+            <div class="carousel" role="list">
 
-                <a class="card" data-bgset="src/drem-1024.webp 1024w, src/drem-768.webp 768w, src/drem-480.webp 480w, src/drem-320.webp 320w" href="https://github.com/Drem-Labs">
+                <a class="card" role="listitem" data-bgset="src/drem-1024.webp 1024w, src/drem-768.webp 768w, src/drem-480.webp 480w, src/drem-320.webp 320w" href="https://github.com/Drem-Labs">
                     <img class="wordmark" src="src/Drem-Labs-Wordmark.png" loading="lazy">
                 </a>
 
-                <a class="card bscu-card"
-                    href="https://www.scu.edu/engineering/beyond-the-classroom/student-organizations/blockchainscu/">
+                <a class="card bscu-card" role="listitem" href="https://www.scu.edu/engineering/beyond-the-classroom/student-organizations/blockchainscu/">
                 </a>
 
-                <a class="card flourish-card"
-                    href="https://ethglobal.com/showcase/flourish-connecting-lens-frens-instantly-zoth4">
+                <a class="card flourish-card" role="listitem" href="https://ethglobal.com/showcase/flourish-connecting-lens-frens-instantly-zoth4">
                 </a>
 
             </div>
+            <button class="carousel-next" aria-label="Next projects">›</button>
         </div>
 
         <div class="mt-2"></div>
@@ -103,4 +103,5 @@
     </div>
 
     <script src="scripts/lazy-load-images.js" defer></script>
+    <script src="scripts/carousel-controls.js" defer></script>
 </body>
