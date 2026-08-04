@@ -13,18 +13,36 @@
   align-items: center;
   background-color: var(--card-bg); /* use design token */
   box-shadow: 0 6px 20px rgba(0,0,0,0.6);
-  height: fit-content;
-  max-width: min(var(--container-max), 98%);
-  width: 95%;
+  height: auto; /* allow natural height */
+  /* clamp width to avoid overflowing narrow viewports and keep a sensible max */
+  width: clamp(280px, 90%, var(--container-max));
+  max-width: 98%;
   border-radius: 16px;
   font-family: 'Nunito Sans', sans-serif;
   padding: var(--gap-lg);
-  margin: var(--gap-md);
+  margin: var(--gap-md) auto;
+  min-width: 0; /* allow flex children to shrink instead of forcing overflow */
+  position: relative; /* establish a local stacking context */
 }
 
 /* Larger screens: slightly bigger card and spacing */
 @media (min-width: 900px) {
   .FG { padding: 40px; }
+}
+
+/* Ensure inner containers don't force overflow */
+.container-3 { max-width: 100%; box-sizing: border-box; }
+.container-2 { width: 100%; box-sizing: border-box; }
+
+/* Prevent horizontal page scroll caused by accidental wide elements */
+html, body { overflow-x: hidden; }
+
+/* Small screens: reduce paddings and font sizes for fit */
+@media (max-width: 420px) {
+  :root { --gap-lg: 16px; }
+  .FG { padding: var(--gap-md); }
+  h1 { font-size: 1.6rem; }
+  p { font-size: 0.95rem; }
 }
 
 /* Icon container — allow visible overflow so icons can "spill" when viewport is too small. Keep layout centered and prevent children from shrinking. */
