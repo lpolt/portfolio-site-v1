@@ -57,6 +57,8 @@ button:focus-visible,
   background-color: var(--card-bg); /* use design token */
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
   height: auto; /* allow natural height */
+  max-height: calc(100vh - 2 * var(--gap-md)); /* fit within viewport with padding margin */
+  overflow-y: auto; /* scroll if content exceeds viewport */
   /* clamp width to avoid overflowing narrow viewports and keep a sensible max */
   width: clamp(280px, 90%, var(--container-max));
   max-width: 98%;
