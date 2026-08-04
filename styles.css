@@ -27,6 +27,7 @@
   .FG { padding: 40px; }
 }
 
+/* Icon container — allow visible overflow so icons can "spill" when viewport is too small. Keep layout centered and prevent children from shrinking. */
 .container-1 {
   width: 100%;
   height: 100%;
@@ -35,6 +36,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
+  gap: var(--gap-sm);
+  overflow: visible; /* let icons overflow instead of producing scrollbars */
 }
 
 .container-2 {
@@ -117,6 +120,7 @@
   max-height: 100px;
   filter: invert(1);
   filter: drop-shadow(1);
+  flex: 0 0 auto; /* prevent shrinking so layout stays consistent */
 }
 
 .imglink:hover {
