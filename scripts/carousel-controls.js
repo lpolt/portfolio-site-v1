@@ -38,4 +38,27 @@ document.addEventListener('DOMContentLoaded', () => {
   carousel.addEventListener('scroll', updateControls, { passive: true });
   window.addEventListener('resize', updateControls);
   updateControls();
+
+  // Animate cards as they enter the carousel viewport using IntersectionObserver
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const cards = Array.from(carousel.querySelectorAll('.card'));
+  if (prefersReduced) {
+    cards.forEach(c => c.classList.add('in-view'));
+  } else if (cards.length) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        } else {
+          // remove so entrance can replay when re-entering
+          entry.target.classList.remove('in-view');
+        }
+      });
+    }, { root: carousel, threshold: [0.35, 0.6] });
+
+    cards.forEach(c => io.observe(c));
+
+    // Tidy up observer when the page unloads
+    window.addEventListener('beforeunload', () => io.disconnect());
+  }
 });
