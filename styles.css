@@ -127,8 +127,13 @@ html, body { overflow-x: hidden; }
 /* NOTE: .card is declared in multiple places in this stylesheet. The later declaration (scroll-snap section) refines snap/flex behaviour and overrides width/height; prefer consolidating to avoid confusion. */
 .card {
   height: 300px;
-  width: min(200px, 45vw); /* responsive width */
+  width: min(260px, 40vw);
   border-radius: 16px;
+
+  /* Layout & sizing (responsive) */
+  flex: 0 0 auto; /* non-shrinking flex item */
+  scroll-snap-align: center; /* center snap in carousel */
+  will-change: transform, opacity;
   padding: 10px;
   background-color: var(--nearwhite);
   background-size: cover;
@@ -187,12 +192,7 @@ html, body { overflow-x: hidden; }
 .carousel::-webkit-scrollbar { display: none; } /* Chrome/Safari */
 
 /* Cards are non-shrinking flex items and snap to center */
-.card {
-  scroll-snap-align: center;
-  flex: 0 0 auto;
-  width: min(260px, 40vw);
-  height: 300px; /* default height; reduced on small screens */
-}
+/* .card consolidation note: rules moved earlier in the file to a single authoritative declaration. */
 
 /* Navigation buttons overlaid */
 .carousel-prev, .carousel-next {
