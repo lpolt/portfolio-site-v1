@@ -18,20 +18,30 @@ async function run() {
   for (const w of sizes) {
     const base = path.join(outDir, `bridge-${w}`);
     console.log('Generating', base + '.avif');
-    await sharp(src).resize({ width: w }).avif({ quality: 55 }).toFile(base + '.avif');
+    await sharp(src)
+      .resize({ width: w })
+      .avif({ quality: 55 })
+      .toFile(base + '.avif');
     console.log('Generating', base + '.webp');
-    await sharp(src).resize({ width: w }).webp({ quality: 75 }).toFile(base + '.webp');
+    await sharp(src)
+      .resize({ width: w })
+      .webp({ quality: 75 })
+      .toFile(base + '.webp');
   }
 
   // small blurred LQIP
   const lqipPath = path.join(outDir, 'bridge-lqip.jpg');
   console.log('Generating LQIP', lqipPath);
-  await sharp(src).resize({ width: 40 }).blur(5).jpeg({ quality: 40 }).toFile(lqipPath);
+  await sharp(src)
+    .resize({ width: 40 })
+    .blur(5)
+    .jpeg({ quality: 40 })
+    .toFile(lqipPath);
 
   console.log('All conversions complete.');
 }
 
-run().catch(err => {
+run().catch((err) => {
   console.error(err);
   process.exit(1);
 });
