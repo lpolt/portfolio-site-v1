@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "convert-images": "node scripts/convert-images.js",
-    "check-images": "node scripts/check-images.js"
+    "check-images": "node scripts/check-images.js",
+    "dev": "npx serve -s . -l 8080"
   },
   "devDependencies": {
-    "sharp": "^0.32.0"
+    "sharp": "^0.35.3"
   }
 }
