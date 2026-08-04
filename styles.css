@@ -5,17 +5,47 @@
 }
 
 /* Focus-visible styles for accessibility */
-:focus-visible { outline: 3px solid #07c; outline-offset: 2px; border-radius: 6px; }
+:focus-visible {
+  outline: 3px solid #07c;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
 
-a:focus-visible, button:focus-visible, .card:focus-visible { outline: 3px solid rgba(0,123,255,0.9); outline-offset: 3px; }
+a:focus-visible,
+button:focus-visible,
+.card:focus-visible {
+  outline: 3px solid rgba(0, 123, 255, 0.9);
+  outline-offset: 3px;
+}
 
 /* Card entrance animation */
-@keyframes cardEnter { from { opacity: 0; transform: translateY(12px) scale(0.995); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.995);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
 
-.card { transition: transform 260ms ease, opacity 260ms ease; opacity: 0.95; }
-.card.in-view { animation: cardEnter 320ms ease both; }
+.card {
+  transition:
+    transform 260ms ease,
+    opacity 260ms ease;
+  opacity: 0.95;
+}
+.card.in-view {
+  animation: cardEnter 320ms ease both;
+}
 
-@media (prefers-reduced-motion: reduce) { .card { transition: none; animation: none !important; } }
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+    animation: none !important;
+  }
+}
 
 /* Main content card — made mobile-first, removed fixed min-width, use tokens for spacing and colors */
 .FG {
@@ -25,7 +55,7 @@ a:focus-visible, button:focus-visible, .card:focus-visible { outline: 3px solid 
   justify-content: flex-start;
   align-items: center;
   background-color: var(--card-bg); /* use design token */
-  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
   height: auto; /* allow natural height */
   /* clamp width to avoid overflowing narrow viewports and keep a sensible max */
   width: clamp(280px, 90%, var(--container-max));
@@ -40,43 +70,76 @@ a:focus-visible, button:focus-visible, .card:focus-visible { outline: 3px solid 
 
 /* Larger screens: slightly bigger card and spacing */
 @media (min-width: 900px) {
-  .FG { padding: 40px; }
+  .FG {
+    padding: 40px;
+  }
 }
 
 /* Ensure inner containers don't force overflow */
-.container-3 { max-width: 100%; box-sizing: border-box; }
-.container-2 { width: 100%; box-sizing: border-box; }
+.container-3 {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.container-2 {
+  width: 100%;
+  box-sizing: border-box;
+}
 
 /* Prevent horizontal page scroll caused by accidental wide elements */
-html, body { overflow-x: hidden; }
+html,
+body {
+  overflow-x: hidden;
+}
 
 /* Small screens: reduce paddings and font sizes for fit */
 @media (max-width: 480px) {
   /* Reduce paddings and type for small viewports */
-  :root { 
+  :root {
     --gap-lg: 12px;
     --gap-md: 10px;
   }
-  .FG { padding: 12px; }
-  h1 { font-size: 1.5rem; }
-  p { font-size: 0.95rem; }
+  .FG {
+    padding: 12px;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  p {
+    font-size: 0.95rem;
+  }
 
   /* Scale down profile picture and icons */
-  .pfp { width: 8rem; height: 8rem; }
-  .imglink { max-width: 64px; max-height: 64px; }
+  .pfp {
+    width: 8rem;
+    height: 8rem;
+  }
+  .imglink {
+    max-width: 64px;
+    max-height: 64px;
+  }
 
   /* Slightly reduce project card vertical size for fit */
-  .card { height: 260px; }
+  .card {
+    height: 260px;
+  }
 }
 
 /* Extra-small very narrow screens */
 @media (max-width: 360px) {
-  .FG { padding-left: 8px; padding-right: 8px; }
-  .card { height: 240px; }
-  .imglink { max-width: 56px; max-height: 56px; }
+  .FG {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .card {
+    height: 240px;
+  }
+  .imglink {
+    max-width: 56px;
+    max-height: 56px;
+  }
 }
 
-/* Icon container — allow visible overflow so icons can "spill" when viewport is too small. Keep layout centered and prevent children from shrinking. */
+/* Icon container — allow horizontal scrolling without showing scrollbars so icons can spill/scroll on small viewports. Keep layout centered and prevent children from shrinking. */
 .container-1 {
   width: 100%;
   height: 100%;
@@ -86,8 +149,17 @@ html, body { overflow-x: hidden; }
   justify-content: center;
   align-items: flex-start;
   gap: var(--gap-sm);
-  overflow: visible; /* let icons overflow instead of producing scrollbars */
+  overflow-x: auto; /* allow horizontal overflow when needed */
+  overflow-y: hidden; /* prevent vertical scrollbar */
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
 }
+.container-1::-webkit-scrollbar {
+  display: none;
+}
+.container-1 > * {
+  flex: 0 0 auto;
+} /* prevent children from shrinking */
 
 .container-2 {
   width: 100%;
@@ -119,26 +191,36 @@ html, body { overflow-x: hidden; }
 } */
 
 /* Project cards — responsive sizes and improved contrast */
+/* NOTE: .card is declared in multiple places in this stylesheet. The later declaration (scroll-snap section) refines snap/flex behaviour and overrides width/height; prefer consolidating to avoid confusion. */
 .card {
   height: 300px;
-  width: min(200px, 45vw); /* responsive width */
+  width: min(260px, 40vw);
   border-radius: 16px;
+
+  /* Layout & sizing (responsive) */
+  flex: 0 0 auto; /* non-shrinking flex item */
+  scroll-snap-align: center; /* center snap in carousel */
+  will-change: transform, opacity;
   padding: 10px;
   background-color: var(--nearwhite);
   background-size: cover;
   background-attachment: scroll;
   background-position: center;
   margin: auto;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.5);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
   text-decoration: none;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
   font-size: 1.1rem;
   color: #fff;
 }
 
 .card:hover {
-  scale: 1.03;
-  transition-duration: 100ms;
+  transform: translateZ(0) scale(1.02);
+  z-index: 6;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.6);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
 }
 
 /* .cardText {
@@ -152,6 +234,14 @@ html, body { overflow-x: hidden; }
     bottom: 20px;
 } */
 
+/* Allow visual overflow so cards can pop outside rounded container edges */
+.container-2 {
+  overflow: visible;
+}
+.FG {
+  overflow: visible;
+}
+
 .carousel {
   display: flex;
   flex-direction: row;
@@ -160,31 +250,32 @@ html, body { overflow-x: hidden; }
   justify-content: flex-start;
   margin: 0 auto;
   overflow-x: auto;
+  overflow-y: hidden; /* prevent vertical scrollbars */
   scroll-snap-type: x mandatory; /* enable scroll snapping */
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-  padding-bottom: 8px; /* avoid clipping shadows */
+  padding-bottom: 12px; /* avoid clipping shadows */
 }
 
-/* Hide native scrollbar while keeping scroll functionality */
-.carousel::-webkit-scrollbar { height: 10px; }
-.carousel { scrollbar-width: thin; }
-.carousel::-webkit-scrollbar { display: none; }
+/* Hide native scrollbar while keeping scroll functionality (cross-browser). Keep a single authoritative setting to avoid duplication. */
+.carousel {
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.carousel::-webkit-scrollbar {
+  display: none;
+} /* Chrome/Safari */
 
 /* Cards are non-shrinking flex items and snap to center */
-.card {
-  scroll-snap-align: center;
-  flex: 0 0 auto;
-  width: min(260px, 40vw);
-  height: 300px; /* default height; reduced on small screens */
-}
+/* .card consolidation note: rules moved earlier in the file to a single authoritative declaration. */
 
 /* Navigation buttons overlaid */
-.carousel-prev, .carousel-next {
+.carousel-prev,
+.carousel-next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
   width: 36px;
@@ -196,15 +287,27 @@ html, body { overflow-x: hidden; }
   cursor: pointer;
   z-index: 5;
 }
-.carousel-prev { left: 8px; }
-.carousel-next { right: 8px; }
+.carousel-prev {
+  left: 8px;
+}
+.carousel-next {
+  right: 8px;
+}
 
 /* Ensure the container that holds carousel is positioned for absolute buttons */
-.container-2 { position: relative; }
+.container-2 {
+  position: relative;
+}
 
 @media (max-width: 480px) {
-  .card { height: 260px; }
-  .carousel-prev, .carousel-next { width: 32px; height: 32px; }
+  .card {
+    height: 260px;
+  }
+  .carousel-prev,
+  .carousel-next {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 .imglink {
@@ -213,14 +316,14 @@ html, body { overflow-x: hidden; }
   border-radius: 15px;
   max-width: 100px;
   max-height: 100px;
-  filter: invert(1);
-  filter: drop-shadow(1);
+  /* combine filters: invert colors then add a subtle drop-shadow. Previously two filter declarations would cause the latter to overwrite the former. */
+  filter: invert(1) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
   flex: 0 0 auto; /* prevent shrinking so layout stays consistent */
 }
 
 .imglink:hover {
-  scale: 1.03;
-  transition-duration: 100ms;
+  transform: translateZ(0) scale(1.03);
+  transition: transform 100ms ease;
 }
 
 .pfp {
@@ -231,7 +334,7 @@ html, body { overflow-x: hidden; }
   object-fit: cover; /* crop the image to fill the circle without distortion */
   display: block;
   margin: auto;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.5);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
 }
 
 .pfp:hover {
@@ -322,15 +425,16 @@ body {
 .bg-overlay {
   position: fixed;
   inset: 0;
-  background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.35));
+  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.35));
   z-index: -1;
   pointer-events: none;
 }
 
 @media (min-width: 900px) {
-  .bg-img { filter: contrast(1) brightness(0.7); }
+  .bg-img {
+    filter: contrast(1) brightness(0.7);
+  }
 }
-
 
 h1,
 h2 {

@@ -18,14 +18,20 @@ async function run() {
   for (const w of sizes) {
     const base = path.join(outDir, `drem-${w}`);
     console.log('Generating', base + '.avif');
-    await sharp(src).resize({ width: w }).avif({ quality: 55 }).toFile(base + '.avif');
+    await sharp(src)
+      .resize({ width: w })
+      .avif({ quality: 55 })
+      .toFile(base + '.avif');
     console.log('Generating', base + '.webp');
-    await sharp(src).resize({ width: w }).webp({ quality: 75 }).toFile(base + '.webp');
+    await sharp(src)
+      .resize({ width: w })
+      .webp({ quality: 75 })
+      .toFile(base + '.webp');
   }
   console.log('Drem conversions complete.');
 }
 
-run().catch(err => {
+run().catch((err) => {
   console.error(err);
   process.exit(1);
 });
