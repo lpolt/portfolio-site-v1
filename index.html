@@ -18,14 +18,16 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
         rel="stylesheet">
+    <!-- Preload LCP candidate: AVIF preferred for supported browsers. imagesrcset provides candidates for browsers that honor imagesrcset on preload. This helps reduce LCP by hinting the browser early. -->
     <link rel="preload" as="image" href="src/bridge-1920.avif"
-        imagesrcset="src/bridge-1920.avif 1920w, src/bridge-1280.avif 1280w" imagesizes="100vw">
+        imagesrcset="src/bridge-1920.avif 1920w, src/bridge-1280.avif 1280w" imagesizes="100vw">
 
 </head>
 
 
 <body class="fade-in-0">
 
+    <!-- Responsive background image (AVIF -> WebP -> fallback). Using a <picture> element ensures the browser can pick the best supported format and lets the DOM contain the LCP image for preload and better measurement. -->
     <picture class="bg-picture" aria-hidden="true">
         <source type="image/avif"
             srcset="src/bridge-1920.avif 1920w, src/bridge-1600.avif 1600w, src/bridge-1280.avif 1280w, src/bridge-1024.avif 1024w"
@@ -45,6 +47,7 @@
 
         <div class="container-3 fade-in-2">
 
+            <!-- Profile image: responsive <picture> with AVIF/WebP fallbacks and a small LQIP for perceived performance. Keep a meaningful alt for accessibility. -->
             <picture class="pfp-picture" aria-hidden="false">
                 <source type="image/avif" srcset="src/pfp-768.avif 768w, src/pfp-480.avif 480w, src/pfp-320.avif 320w" sizes="(min-width:900px) 10rem, 28vw">
                 <source type="image/webp" srcset="src/pfp-768.webp 768w, src/pfp-480.webp 480w, src/pfp-320.webp 320w" sizes="(min-width:900px) 10rem, 28vw">
@@ -87,6 +90,7 @@
 
         <div class="mt-1"></div>
 
+        <!-- Projects carousel container. Uses scroll-snap for single-row layout and data-bgset for responsive background selection via JS. Cards are focusable and keyboard-accessible. -->
         <div class="container-2 fade-in-2">
             <button class="carousel-prev" aria-label="Previous projects">‹</button>
             <div class="carousel" role="list">
@@ -113,6 +117,7 @@
 
     </div>
 
+    <!-- Lazy loader picks the best background candidate (data-bgset) at intersection time. carousel-controls adds keyboard, button, and entrance animations. -->
     <script src="scripts/lazy-load-images.js" defer></script>
     <script src="scripts/carousel-controls.js" defer></script>
 </body>
