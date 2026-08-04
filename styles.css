@@ -318,8 +318,7 @@ body {
   }
   .carousel-prev,
   .carousel-next {
-    width: 32px;
-    height: 32px;
+    display: none; /* hide nav buttons on mobile to prevent overlap */
   }
 }
 
