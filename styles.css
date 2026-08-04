@@ -70,6 +70,13 @@ button:focus-visible,
   position: relative; /* establish a local stacking context */
 }
 
+/* Very unusual aspect ratios (e.g., embedded browser panels): allow full scroll without height constraint */
+@media (max-height: 600px) {
+  .FG {
+    max-height: none;
+  }
+}
+
 /* Larger screens: slightly bigger card and spacing */
 @media (min-width: 900px) {
   .FG {
