@@ -112,6 +112,7 @@ body {
   }
   .FG {
     padding: 12px;
+    max-height: none; /* allow container to fit all contents without constraint */
   }
   h1 {
     font-size: 1.2rem;
