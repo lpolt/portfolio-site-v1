@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "convert-images": "node scripts/convert-images.js",
-    "check-images": "node scripts/check-images.js",
-    "dev": "npx serve -s . -l 8080"
+    "convert-drem": "node scripts/convert-drem.js",
+    "check-images": "node scripts/check-images.js"
   },
   "devDependencies": {
     "sharp": "^0.35.3"
