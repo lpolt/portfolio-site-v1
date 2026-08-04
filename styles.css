@@ -318,8 +318,7 @@ body {
   }
   .carousel-prev,
   .carousel-next {
-    width: 32px;
-    height: 32px;
+    display: none; /* hide nav buttons on mobile to prevent overlap */
   }
 }
 
@@ -360,7 +359,7 @@ body {
   /* Use optimized webp wordmark; ensure it doesn't repeat and is contained */
   background-image: url('src/bscu-logo-w.webp');
   background-position: center;
-  background-size: 60%;
+  background-size: calc(100% - 20px);
   background-repeat: no-repeat;
   background-color: #F5F5F5; /* SCU neutral light */
 }
@@ -370,7 +369,7 @@ body {
   background-image: url('src/flourish-wordmark-w.webp');
   background-color: beige;
   background-position: center;
-  background-size: 60%;
+  background-size: calc(100% - 20px);
   background-repeat: no-repeat;
 }
 
