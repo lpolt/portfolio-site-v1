@@ -6,7 +6,7 @@
     "convert-images": "node scripts/convert-images.js",
     "convert-drem": "node scripts/convert-drem.js",
     "check-images": "node scripts/check-images.js",
-    "dev": "npx http-server . -p 8000 --silent"
+    "dev": "npx http-server . -p 8008 --silent"
   },
   "devDependencies": {
     "sharp": "^0.35.3"
