@@ -53,21 +53,25 @@
     }
 
     .bscu-card{
-      background-image: url('src/bscu-logo-w.png');
-      background-position: center;
-      background-size: 110%;
-    }
+          /* use optimized webp variant on small screens too */
+          background-image: url('src/bscu-logo-w.webp');
+          background-position: center;
+          background-size: 110%;
+          background-repeat: no-repeat;
+        }
 
-    .flourish-card{
-      background-image: url('src/flourish-wordmark-w.png');
-      background-position: center;
-      background-size: 90%;
-    }
+        .flourish-card{
+          /* use optimized webp variant on small screens too */
+          background-image: url('src/flourish-wordmark-w.webp');
+          background-position: center;
+          background-size: 90%;
+          background-repeat: no-repeat;
+        }
 
-    .wordmark {
-      height: 50px;
-      width: 280px;
-    }
+        .wordmark {
+          height: 50px;
+          width: 280px;
+        }
   
     body{
       overflow: scroll;

@@ -57,6 +57,8 @@ button:focus-visible,
   background-color: var(--card-bg); /* use design token */
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
   height: auto; /* allow natural height */
+  max-height: calc(100vh - 2 * var(--gap-md)); /* fit within viewport with padding margin */
+  overflow-y: auto; /* scroll if content exceeds viewport */
   /* clamp width to avoid overflowing narrow viewports and keep a sensible max */
   width: clamp(280px, 90%, var(--container-max));
   max-width: 98%;
@@ -66,6 +68,16 @@ button:focus-visible,
   margin: var(--gap-md) auto;
   min-width: 0; /* allow flex children to shrink instead of forcing overflow */
   position: relative; /* establish a local stacking context */
+}
+
+/* Very unusual aspect ratios (e.g., embedded browser panels): allow full scroll without height constraint */
+@media (max-height: 600px) {
+  .FG {
+    max-height: none;
+  }
+  .card {
+    height: 300px;
+  }
 }
 
 /* Larger screens: slightly bigger card and spacing */
@@ -100,27 +112,28 @@ body {
   }
   .FG {
     padding: 12px;
+    max-height: none; /* allow container to fit all contents without constraint */
   }
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   p {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
   }
 
-  /* Scale down profile picture and icons */
+  /* Scale down profile picture and icons proportionally */
   .pfp {
-    width: 8rem;
-    height: 8rem;
+    width: 6rem;
+    height: 6rem;
   }
   .imglink {
-    max-width: 64px;
-    max-height: 64px;
+    max-width: 48px;
+    max-height: 48px;
   }
 
-  /* Slightly reduce project card vertical size for fit */
+  /* Scale down project card proportionally */
   .card {
-    height: 260px;
+    height: 200px;
   }
 }
 
@@ -305,8 +318,7 @@ body {
   }
   .carousel-prev,
   .carousel-next {
-    width: 32px;
-    height: 32px;
+    display: none; /* hide nav buttons on mobile to prevent overlap */
   }
 }
 
@@ -344,16 +356,20 @@ body {
 
 /* CTA removed per user request */
 .bscu-card {
-  background-image: url('src/bscu-logo.png');
-  background-position: top center;
+  /* Use optimized webp wordmark; ensure it doesn't repeat and is contained */
+  background-image: url('src/bscu-logo-w.webp');
+  background-position: center;
+  background-size: calc(100% - 20px);
+  background-repeat: no-repeat;
+  background-color: #F5F5F5; /* SCU neutral light */
 }
 
 .flourish-card {
-  background-image: url('src/flourish-wordmark.png');
+  /* Use the white variant optimized to WebP so it renders on darker backgrounds */
+  background-image: url('src/flourish-wordmark-w.webp');
   background-color: beige;
-  background-position: top center;
-  background-size: contain;
   background-position: center;
+  background-size: calc(100% - 20px);
   background-repeat: no-repeat;
 }
 
