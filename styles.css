@@ -114,25 +114,25 @@ body {
     padding: 12px;
   }
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   p {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
   }
 
-  /* Scale down profile picture and icons */
+  /* Scale down profile picture and icons proportionally */
   .pfp {
-    width: 8rem;
-    height: 8rem;
+    width: 6rem;
+    height: 6rem;
   }
   .imglink {
-    max-width: 64px;
-    max-height: 64px;
+    max-width: 48px;
+    max-height: 48px;
   }
 
-  /* Slightly reduce project card vertical size for fit */
+  /* Scale down project card proportionally */
   .card {
-    height: 260px;
+    height: 200px;
   }
 }
 
