@@ -75,6 +75,9 @@ button:focus-visible,
   .FG {
     max-height: none;
   }
+  .card {
+    height: 300px;
+  }
 }
 
 /* Larger screens: slightly bigger card and spacing */
