@@ -137,23 +137,7 @@
   transition-duration: 120ms;
 }
 
-/* Primary CTA button — added to give a clear action on the hero */
-.cta {
-  display: inline-block;
-  margin-top: var(--gap-sm);
-  padding: 0.6rem 1rem;
-  background: linear-gradient(180deg, var(--accent), #d9ad59);
-  color: #111;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 700;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.45);
-}
-
-.cta:focus, .cta:hover {
-  transform: translateY(-2px);
-}
-
+/* CTA removed per user request */
 .bscu-card {
   background-image: url('src/bscu-logo.png');
   background-position: top center;
