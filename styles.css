@@ -137,8 +137,10 @@ html, body { overflow-x: hidden; }
 }
 
 .card:hover {
-  scale: 1.03;
-  transition-duration: 100ms;
+  transform: translateZ(0) scale(1.02);
+  z-index: 6;
+  box-shadow: 0 10px 18px rgba(0,0,0,0.6);
+  transition: transform 160ms ease, box-shadow 160ms ease;
 }
 
 /* .cardText {
@@ -152,6 +154,10 @@ html, body { overflow-x: hidden; }
     bottom: 20px;
 } */
 
+/* Allow visual overflow so cards can pop outside rounded container edges */
+.container-2 { overflow: visible; }
+.FG { overflow: visible; }
+
 .carousel {
   display: flex;
   flex-direction: row;
@@ -160,14 +166,16 @@ html, body { overflow-x: hidden; }
   justify-content: flex-start;
   margin: 0 auto;
   overflow-x: auto;
+  overflow-y: hidden; /* prevent vertical scrollbars */
   scroll-snap-type: x mandatory; /* enable scroll snapping */
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-  padding-bottom: 8px; /* avoid clipping shadows */
+  padding-bottom: 12px; /* avoid clipping shadows */
 }
 
 /* Hide native scrollbar while keeping scroll functionality */
-.carousel::-webkit-scrollbar { height: 10px; }
+.carousel { -ms-overflow-style: none; scrollbar-width: none; }
+.carousel::-webkit-scrollbar { display: none; }
 .carousel { scrollbar-width: thin; }
 .carousel::-webkit-scrollbar { display: none; }
 
