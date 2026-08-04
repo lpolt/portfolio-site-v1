@@ -1,6 +1,25 @@
+/* Design tokens and spacing scale — added variables for consistent theming and a mobile-first baseline */
 :root {
+  /* Colors */
   --tan: #c3c0a0;
   --taupe: #4c443c;
   --nearwhite: #dddddd;
   --offGray: #a59690;
+
+  --bg-overlay: rgba(0,0,0,0.55); /* card overlay */
+  --card-bg: rgba(5,5,5,0.6);
+  --text: #ffffff;
+  --muted: rgba(255,255,255,0.85);
+  --accent: #e6c07b; /* subtle accent for CTA */
+
+  /* Spacing scale */
+  --gap-xs: 8px;
+  --gap-sm: 12px;
+  --gap-md: 20px;
+  --gap-lg: 32px;
+
+  /* Type scale (mobile-first) */
+  --fs-h1: 2rem;
+  --fs-body: 1rem;
+  --container-max: 900px;
 }
