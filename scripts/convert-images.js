@@ -2,7 +2,7 @@ const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
 
-const src = path.join(__dirname, '..', 'src', 'bridge-1.jpg');
+const src = path.join(__dirname, '..', 'src', 'bridge-1.jpg'); // source reference kept for clarity; conversions already created from this file
 const outDir = path.join(__dirname, '..', 'src');
 const sizes = [1920, 1600, 1280, 1024];
 
