@@ -6,8 +6,8 @@
     "convert-images": "node scripts/convert-images.js",
     "convert-drem": "node scripts/convert-drem.js",
     "check-images": "node scripts/check-images.js",
+    "dev": "npx http-server . -p 8008 --silent",
     "optimize-images": "node scripts/optimize-images.js",
-    "dev": "npx http-server . -p 8000 --silent",
     "format": "prettier --write \"**/*.{js,css,html,md,json}\""
   },
   "devDependencies": {
