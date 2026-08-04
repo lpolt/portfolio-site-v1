@@ -344,16 +344,20 @@ body {
 
 /* CTA removed per user request */
 .bscu-card {
-  background-image: url('src/bscu-logo.png');
-  background-position: top center;
+  /* Use optimized webp wordmark; ensure it doesn't repeat and is contained */
+  background-image: url('src/bscu-logo-w.webp');
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-color: rgba(255,255,255,0); /* transparent fallback */
 }
 
 .flourish-card {
-  background-image: url('src/flourish-wordmark.png');
+  /* Use the white variant optimized to WebP so it renders on darker backgrounds */
+  background-image: url('src/flourish-wordmark-w.webp');
   background-color: beige;
-  background-position: top center;
-  background-size: contain;
   background-position: center;
+  background-size: 60%;
   background-repeat: no-repeat;
 }
 
