@@ -166,8 +166,11 @@ html, body { overflow-x: hidden; }
 
 .pfp {
   border-radius: 50%;
-  width: 10rem; /* slightly smaller on small screens for better balance */
-  height: 10rem;
+  /* make avatar responsive while keeping a square aspect and covering the box */
+  width: clamp(6rem, 28vw, 10rem);
+  aspect-ratio: 1 / 1; /* ensures square box */
+  object-fit: cover; /* crop the image to fill the circle without distortion */
+  display: block;
   margin: auto;
   box-shadow: 0 6px 12px rgba(0,0,0,0.5);
 }
