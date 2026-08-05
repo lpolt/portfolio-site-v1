@@ -103,54 +103,67 @@ body {
   overflow-x: hidden;
 }
 
-/* Small screens: reduce paddings and font sizes for fit */
+/* Small screens: aggressive scaling to fit within viewport */
 @media (max-width: 480px) {
   /* Reduce paddings and type for small viewports */
   :root {
-    --gap-lg: 12px;
-    --gap-md: 10px;
+    --gap-lg: 8px;
+    --gap-md: 6px;
   }
   .FG {
-    padding: 12px;
+    padding: 10px;
     max-height: none; /* allow container to fit all contents without constraint */
   }
   h1 {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    margin-top: 4px;
   }
   p {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
+    margin: 2px 0;
   }
 
-  /* Scale down profile picture and icons proportionally */
+  /* Aggressive scale down for mobile fit */
   .pfp {
-    width: 6rem;
-    height: 6rem;
+    width: 4.5rem;
+    height: 4.5rem;
   }
   .imglink {
-    max-width: 48px;
-    max-height: 48px;
+    max-width: 36px;
+    max-height: 36px;
   }
 
-  /* Scale down project card proportionally */
+  /* Compact project cards */
   .card {
-    height: 200px;
+    height: 160px;
+    width: min(220px, 30vw);
+  }
+  
+  hr {
+    margin-top: 8px;
+    margin-bottom: 8px;
   }
 }
 
 /* Extra-small very narrow screens */
 @media (max-width: 360px) {
   .FG {
-    padding-left: 8px;
-    padding-right: 8px;
+    padding: 8px;
   }
   .card {
-    height: 240px;
+    height: 140px;
+    width: min(180px, 28vw);
   }
   .imglink {
-    max-width: 56px;
-    max-height: 56px;
+    max-width: 32px;
+    max-height: 32px;
   }
-}
+  h1 {
+    font-size: 0.9rem;
+  }
+  p {
+    font-size: 0.7rem;
+  }
 
 /* Icon container — allow horizontal scrolling without showing scrollbars so icons can spill/scroll on small viewports. Keep layout centered and prevent children from shrinking. */
 .container-1 {
