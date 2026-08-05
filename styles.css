@@ -47,45 +47,7 @@ button:focus-visible,
   }
 }
 
-/* Main content card — made mobile-first, removed fixed min-width, use tokens for spacing and colors */
-.FG {
-  /* for the main content block */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: var(--card-bg); /* use design token */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
-  height: auto; /* allow natural height */
-  max-height: calc(100vh - 2 * var(--gap-md)); /* fit within viewport with padding margin */
-  overflow-y: auto; /* scroll if content exceeds viewport */
-  /* clamp width to avoid overflowing narrow viewports and keep a sensible max */
-  width: clamp(280px, 90%, var(--container-max));
-  max-width: 98%;
-  border-radius: 16px;
-  font-family: 'Nunito Sans', sans-serif;
-  padding: var(--gap-lg);
-  margin: var(--gap-md) auto;
-  min-width: 0; /* allow flex children to shrink instead of forcing overflow */
-  position: relative; /* establish a local stacking context */
-}
-
-/* Very unusual aspect ratios (e.g., embedded browser panels): allow full scroll without height constraint */
-@media (max-height: 600px) {
-  .FG {
-    max-height: none;
-  }
-  .card {
-    height: 300px;
-  }
-}
-
-/* Larger screens: slightly bigger card and spacing */
-@media (min-width: 900px) {
-  .FG {
-    padding: 40px;
-  }
-}
+/* Main content card — handled in body section below */
 
 /* Ensure inner containers don't force overflow */
 .container-3 {
@@ -103,67 +65,70 @@ body {
   overflow-x: hidden;
 }
 
-/* Small screens: aggressive scaling to fit within viewport */
+/* Small screens: compact layout */
 @media (max-width: 480px) {
-  /* Reduce paddings and type for small viewports */
   :root {
-    --gap-lg: 8px;
-    --gap-md: 6px;
+    --gap-lg: 12px;
+    --gap-md: 8px;
+    --gap-sm: 8px;
   }
-  .FG {
-    padding: 10px;
-    max-height: none; /* allow container to fit all contents without constraint */
-  }
+  
   h1 {
-    font-size: 1rem;
-    margin-top: 4px;
+    font-size: 1.5rem;
+    margin-top: 8px;
   }
+  
   p {
-    font-size: 0.75rem;
-    margin: 2px 0;
+    font-size: 0.9rem;
+    margin: 4px 0;
   }
 
-  /* Aggressive scale down for mobile fit */
   .pfp {
-    width: 4.5rem;
-    height: 4.5rem;
+    width: 5rem;
+    height: 5rem;
   }
+  
   .imglink {
-    max-width: 36px;
-    max-height: 36px;
+    max-width: 44px;
+    max-height: 44px;
   }
 
-  /* Compact project cards */
   .card {
-    height: 160px;
-    width: min(220px, 30vw);
+    height: 180px;
+    width: min(240px, 80vw);
   }
   
   hr {
-    margin-top: 8px;
-    margin-bottom: 8px;
+    margin-top: 12px;
+    margin-bottom: 12px;
   }
 }
 
-/* Extra-small very narrow screens */
+/* Extra-small screens */
 @media (max-width: 360px) {
-  .FG {
-    padding: 8px;
+  h1 {
+    font-size: 1.1rem;
   }
-  .card {
-    height: 140px;
-    width: min(180px, 28vw);
+  
+  p {
+    font-size: 0.75rem;
   }
+  
+  .pfp {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  
   .imglink {
     max-width: 32px;
     max-height: 32px;
   }
-  h1 {
-    font-size: 0.9rem;
+  
+  .card {
+    height: 140px;
+    width: min(180px, 80vw);
   }
-  p {
-    font-size: 0.7rem;
-  }
+}
 
 /* Icon container — allow horizontal scrolling without showing scrollbars so icons can spill/scroll on small viewports. Keep layout centered and prevent children from shrinking. */
 .container-1 {
@@ -426,6 +391,8 @@ html,
 body {
   height: 100%;
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -433,30 +400,71 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: auto;
-  color: var(--text); /* use design token for clear contrast */
+  overflow: hidden; /* prevent body scroll; .FG handles its own scrolling if needed */
+  color: var(--text);
   background-color: var(--offGray);
+  position: relative;
 }
 
-/* Background image replaced by responsive <picture> element inserted in the DOM */
+/* Background image: fixed, fills viewport */
 .bg-img {
   position: fixed;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -2; /* behind the card */
+  z-index: -2;
   pointer-events: none;
-  filter: contrast(0.95) brightness(0.6); /* subtle dimming to improve foreground contrast */
+  filter: contrast(0.95) brightness(0.6);
 }
 
-/* Lightweight overlay to ensure text readability on varied imagery */
 .bg-overlay {
   position: fixed;
   inset: 0;
   background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.35));
   z-index: -1;
   pointer-events: none;
+}
+
+/* Main foreground container: centered, fits on screen */
+.FG {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--card-bg);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  border-radius: 16px;
+  font-family: 'Nunito Sans', sans-serif;
+  padding: var(--gap-lg);
+  position: relative;
+  z-index: 1;
+  /* Desktop: fixed dimensions */
+  width: 90%;
+  max-width: 1000px;
+  min-width: 0;
+  height: auto;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Mobile: fit content to viewport */
+@media (max-width: 768px) {
+  .FG {
+    width: 95%;
+    max-width: none;
+    max-height: 100vh;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .FG {
+    width: 100%;
+    max-height: 100vh;
+    padding: 12px;
+    border-radius: 0; /* full-screen fit */
+  }
 }
 
 @media (min-width: 900px) {
