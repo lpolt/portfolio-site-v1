@@ -68,52 +68,24 @@ body {
 /* Small screens: compact layout */
 @media (max-width: 480px) {
   :root {
-    --gap-lg: 12px;
-    --gap-md: 8px;
-    --gap-sm: 8px;
+    --gap-lg: 8px;
+    --gap-md: 4px;
+    --gap-sm: 6px;
   }
   
-  h1 {
-    font-size: 1.5rem;
-    margin-top: 8px;
-  }
-  
-  p {
-    font-size: 0.9rem;
-    margin: 4px 0;
-  }
-
-  .pfp {
-    width: 5rem;
-    height: 5rem;
-  }
-  
-  .imglink {
-    max-width: 44px;
-    max-height: 44px;
-  }
-
-  .card {
-    height: 180px;
-    width: min(240px, 80vw);
-  }
-  
-  hr {
-    margin-top: 12px;
-    margin-bottom: 12px;
-  }
-}
-
-/* Extra-small screens */
-@media (max-width: 360px) {
   h1 {
     font-size: 1.1rem;
+    margin-top: 4px;
+    margin-bottom: 2px;
+    white-space: nowrap;
   }
   
   p {
     font-size: 0.75rem;
+    margin: 2px 0;
+    white-space: nowrap;
   }
-  
+
   .pfp {
     width: 3.5rem;
     height: 3.5rem;
@@ -123,9 +95,45 @@ body {
     max-width: 32px;
     max-height: 32px;
   }
+
+  .card {
+    height: 120px;
+    width: min(240px, 80vw);
+  }
+  
+  .container-1 {
+    padding: 8px;
+  }
+  
+  hr {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    width: 90%;
+  }
+}
+
+/* Extra-small screens */
+@media (max-width: 360px) {
+  h1 {
+    font-size: 0.95rem;
+  }
+  
+  p {
+    font-size: 0.65rem;
+  }
+  
+  .pfp {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .imglink {
+    max-width: 28px;
+    max-height: 28px;
+  }
   
   .card {
-    height: 140px;
+    height: 100px;
     width: min(180px, 80vw);
   }
 }
