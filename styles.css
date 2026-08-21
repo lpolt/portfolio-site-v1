@@ -7,6 +7,7 @@
 html,
 body {
   height: 100%;
+  height: 100dvh;
   width: 100%;
   font-family: 'Nunito Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--nearwhite);
@@ -17,9 +18,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  min-height: 100vh;
-  padding: 20px 16px;
+  height: 100%;
+  height: 100dvh;
+  padding: 16px;
   background-color: var(--offGray);
   background-image: url('src/bridge-1.jpg');
   background-size: cover;
@@ -28,7 +29,7 @@ body {
   overflow: hidden;
 }
 
-/* Glassmorphism Main Content Smartphone Frame */
+/* Glassmorphism Smartphone Frame (Fills Viewport Height on All Devices) */
 .FG {
   display: flex;
   flex-direction: column;
@@ -36,14 +37,16 @@ body {
   align-items: center;
   width: 100%;
   max-width: 760px;
-  height: min(94vh, 920px);
+  height: 100%;
+  max-height: calc(100dvh - 32px);
+  flex-shrink: 0;
   background: var(--glass-bg);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--glass-border);
   border-radius: 36px;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  padding: 40px 36px;
+  padding: 36px 32px;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -73,12 +76,11 @@ body {
   align-items: center;
   text-align: center;
   width: 100%;
-  margin-bottom: 12px;
 }
 
 .pfp {
-  width: 135px;
-  height: 135px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid rgba(255, 255, 255, 0.25);
@@ -93,21 +95,21 @@ body {
 }
 
 h1 {
-  font-size: 2.6rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  margin-top: 16px;
-  margin-bottom: 6px;
+  margin-top: 14px;
+  margin-bottom: 4px;
   color: #ffffff;
   letter-spacing: -0.02em;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .hero-title {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: var(--text-muted);
   font-weight: 400;
   letter-spacing: 0.03em;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 /* Social Buttons */
@@ -122,8 +124,8 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border-radius: 16px;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
@@ -153,7 +155,7 @@ h1 {
 .divider-wrapper {
   position: relative;
   width: 100%;
-  margin: 24px 0;
+  margin: 20px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -203,7 +205,7 @@ h1 {
   position: relative;
   flex: 1;
   min-width: 0;
-  height: clamp(260px, 32vh, 350px);
+  height: clamp(240px, 30vh, 340px);
   border-radius: 22px;
   text-decoration: none;
   overflow: hidden;
@@ -256,7 +258,7 @@ h1 {
 .card-content {
   position: relative;
   z-index: 2;
-  padding: 22px 16px;
+  padding: 20px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -274,7 +276,7 @@ h1 {
 
 .bscu-wordmark,
 .flourish-wordmark {
-  max-height: 48px;
+  max-height: 46px;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
@@ -290,14 +292,14 @@ h1 {
 }
 
 .card-title {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #ffffff;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 .card-tag {
-  font-size: 0.73rem;
+  font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -334,5 +336,6 @@ h1 {
   animation: fadeIn 0.6s ease-out forwards;
   animation-delay: 0.25s;
 }
+
 
 
