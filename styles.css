@@ -17,31 +17,53 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
   min-height: 100vh;
-  padding: 24px 16px;
+  padding: 20px 16px;
   background-color: var(--offGray);
   background-image: url('src/bridge-1.jpg');
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
-/* Glassmorphism Main Content Card */
+/* Glassmorphism Main Content Smartphone Frame */
 .FG {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 880px;
+  max-width: 760px;
+  height: min(94vh, 920px);
   background: var(--glass-bg);
-  backdrop-filter: blur(18px) saturate(180%);
-  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--glass-border);
-  border-radius: 28px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  padding: 44px 36px;
+  border-radius: 36px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  padding: 40px 36px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Subtle Glass Scrollbar */
+.FG::-webkit-scrollbar {
+  width: 6px;
+}
+
+.FG::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.FG::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.FG::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
 }
 
 /* Hero Section */
@@ -51,11 +73,12 @@ body {
   align-items: center;
   text-align: center;
   width: 100%;
+  margin-bottom: 12px;
 }
 
 .pfp {
-  width: 140px;
-  height: 140px;
+  width: 135px;
+  height: 135px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid rgba(255, 255, 255, 0.25);
@@ -70,9 +93,9 @@ body {
 }
 
 h1 {
-  font-size: 2.75rem;
+  font-size: 2.6rem;
   font-weight: 700;
-  margin-top: 18px;
+  margin-top: 16px;
   margin-bottom: 6px;
   color: #ffffff;
   letter-spacing: -0.02em;
@@ -80,11 +103,11 @@ h1 {
 }
 
 .hero-title {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--text-muted);
   font-weight: 400;
   letter-spacing: 0.03em;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 /* Social Buttons */
@@ -99,8 +122,8 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 52px;
-  height: 52px;
+  width: 50px;
+  height: 50px;
   border-radius: 16px;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
@@ -130,7 +153,7 @@ h1 {
 .divider-wrapper {
   position: relative;
   width: 100%;
-  margin: 36px 0 28px 0;
+  margin: 24px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -150,7 +173,7 @@ h1 {
   z-index: 1;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--text-muted);
   background: rgba(18, 22, 30, 0.9);
@@ -163,12 +186,13 @@ h1 {
 /* Projects Grid / Carousel */
 .projects-section {
   width: 100%;
+  margin-top: auto;
 }
 
 .carousel {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 18px;
   justify-content: center;
   align-items: stretch;
   width: 100%;
@@ -179,8 +203,8 @@ h1 {
   position: relative;
   flex: 1;
   min-width: 0;
-  height: 310px;
-  border-radius: 20px;
+  height: clamp(260px, 32vh, 350px);
+  border-radius: 22px;
   text-decoration: none;
   overflow: hidden;
   background-size: cover;
@@ -232,7 +256,7 @@ h1 {
 .card-content {
   position: relative;
   z-index: 2;
-  padding: 24px 18px;
+  padding: 22px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -266,14 +290,14 @@ h1 {
 }
 
 .card-title {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: #ffffff;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 .card-tag {
-  font-size: 0.75rem;
+  font-size: 0.73rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -310,4 +334,5 @@ h1 {
   animation: fadeIn 0.6s ease-out forwards;
   animation-delay: 0.25s;
 }
+
 
