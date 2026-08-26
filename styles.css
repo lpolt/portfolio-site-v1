@@ -113,10 +113,10 @@ h1 {
   margin-bottom: 18px;
 }
 
-/* Social Buttons */
+/* Social Buttons - Minimal Borderless Icons */
 .social-links {
   display: flex;
-  gap: 16px;
+  gap: 22px;
   justify-content: center;
   align-items: center;
 }
@@ -125,31 +125,27 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 16px;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+  border: none;
+  padding: 4px;
   text-decoration: none;
+  transition: transform 0.2s ease;
 }
 
 .social-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: var(--glass-border-hover);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  background: transparent;
+  transform: scale(1.1);
 }
 
 .imglink {
-  width: 24px;
-  height: 24px;
-  filter: invert(1) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
-  transition: transform 0.25s ease;
+  width: 28px;
+  height: 28px;
+  filter: invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+  transition: filter 0.2s ease;
 }
 
 .social-btn:hover .imglink {
-  transform: scale(1.1);
+  filter: invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.85));
 }
 
 /* Section Divider Badge */
@@ -209,7 +205,7 @@ h1 {
   max-height: 100%;
 }
 
-/* Project Cards - Wide Horizontal Banners */
+/* Project Cards - Wide Horizontal Banners with Minimal Interaction */
 .card {
   position: relative;
   width: 100%;
@@ -221,18 +217,18 @@ h1 {
   background-size: cover;
   background-position: center;
   border: 1px solid var(--card-border);
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: filter 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: row;
 }
 
-
 .card:hover {
-  transform: translateY(-4px);
+  filter: brightness(1.12);
   border-color: var(--glass-border-hover);
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.5), 0 0 24px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
 }
+
 
 .drem-card {
   background-image: url('src/drem-crop.jpg');
