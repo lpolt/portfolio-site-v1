@@ -187,33 +187,34 @@ h1 {
   backdrop-filter: blur(8px);
 }
 
-/* Projects Grid / Carousel (Unified Vertical Stack on All Viewports) */
+/* Projects Grid / Carousel (Centered Vertically Between 'PROJECTS' Badge and Bottom of .FG) */
 .projects-section {
   width: 100%;
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   min-height: 0;
+  padding: 12px 0;
 }
 
 .carousel {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  justify-content: space-between;
+  justify-content: center;
   align-items: stretch;
   width: 100%;
-  flex: 1;
-  min-height: 0;
+  max-height: 100%;
 }
 
 /* Project Cards - Wide Horizontal Banners */
 .card {
   position: relative;
-  flex: 1;
   width: 100%;
-  min-height: 120px;
-  max-height: 170px;
+  height: clamp(105px, 15vh, 155px);
+  flex-shrink: 0;
   border-radius: 22px;
   text-decoration: none;
   overflow: hidden;
@@ -225,6 +226,7 @@ h1 {
   display: flex;
   flex-direction: row;
 }
+
 
 .card:hover {
   transform: translateY(-4px);

@@ -44,25 +44,28 @@
   }
 
   .divider-wrapper {
-    margin: 28px 0 20px 0;
+    margin: 16px 0 8px 0;
+  }
+
+  .projects-section {
+    padding: 6px 0;
+    justify-content: center;
   }
 
   .carousel {
     flex-direction: column;
-    gap: 14px;
+    gap: 12px;
     width: 100%;
-    flex: 1;
-    min-height: 0;
+    justify-content: center;
   }
 
   .card {
     width: 100%;
-    flex: 1;
-    height: auto;
-    min-height: 120px;
-    max-height: 180px;
+    height: clamp(95px, 14vh, 140px);
     border-radius: 18px;
+    flex-shrink: 0;
   }
+
 
 
   .card-content {
