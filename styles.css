@@ -187,7 +187,7 @@ h1 {
   backdrop-filter: blur(8px);
 }
 
-/* Projects Grid / Carousel */
+/* Projects Grid / Carousel (Unified Vertical Stack on All Viewports) */
 .projects-section {
   width: 100%;
   flex: 1;
@@ -198,23 +198,22 @@ h1 {
 
 .carousel {
   display: flex;
-  flex-direction: row;
-  gap: 18px;
-  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: space-between;
   align-items: stretch;
   width: 100%;
   flex: 1;
   min-height: 0;
 }
 
-/* Project Cards */
+/* Project Cards - Wide Horizontal Banners */
 .card {
   position: relative;
   flex: 1;
-  min-width: 0;
-  height: 100%;
-  min-height: 260px;
-  max-height: 400px;
+  width: 100%;
+  min-height: 120px;
+  max-height: 170px;
   border-radius: 22px;
   text-decoration: none;
   overflow: hidden;
@@ -224,11 +223,11 @@ h1 {
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
   border-color: var(--glass-border-hover);
   box-shadow: 0 18px 36px rgba(0, 0, 0, 0.5), 0 0 24px rgba(255, 255, 255, 0.1);
 }
@@ -238,17 +237,17 @@ h1 {
 }
 
 .bscu-card {
-  background-image: url('src/bscu-logo.png');
+  background-image: url('src/bscu-logo-w.png');
   background-color: #18191c;
-  background-position: center;
+  background-position: center left 24px;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .flourish-card {
-  background-image: url('src/flourish-wordmark.png');
+  background-image: url('src/flourish-wordmark-w.png');
   background-color: #1a221d;
-  background-position: center;
+  background-position: center left 24px;
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -256,20 +255,20 @@ h1 {
 .card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.75) 100%);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%);
   transition: background 0.3s ease;
 }
 
 .card:hover .card-overlay {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.85) 100%);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.9) 100%);
 }
 
 .card-content {
   position: relative;
   z-index: 2;
-  padding: 20px 16px;
+  padding: 24px 28px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   height: 100%;
@@ -277,7 +276,7 @@ h1 {
 }
 
 .wordmark {
-  max-height: 38px;
+  max-height: 42px;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
@@ -285,7 +284,7 @@ h1 {
 
 .bscu-wordmark,
 .flourish-wordmark {
-  max-height: 46px;
+  max-height: 50px;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
@@ -294,14 +293,14 @@ h1 {
 .card-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   gap: 6px;
-  text-align: center;
-  margin-top: auto;
+  text-align: right;
+  margin-top: 0;
 }
 
 .card-title {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: #ffffff;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
@@ -319,6 +318,7 @@ h1 {
   border: 1px solid rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(6px);
 }
+
 
 /* Animations */
 @keyframes fadeIn {
