@@ -46,7 +46,7 @@ body {
   border: 1px solid var(--glass-border);
   border-radius: 36px;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  padding: 36px 32px;
+  padding: 36px 32px 32px 32px;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -76,6 +76,7 @@ body {
   align-items: center;
   text-align: center;
   width: 100%;
+  flex-shrink: 0;
 }
 
 .pfp {
@@ -159,6 +160,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .divider-wrapper::before {
@@ -188,7 +190,10 @@ h1 {
 /* Projects Grid / Carousel */
 .projects-section {
   width: 100%;
-  margin-top: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 .carousel {
@@ -198,6 +203,8 @@ h1 {
   justify-content: center;
   align-items: stretch;
   width: 100%;
+  flex: 1;
+  min-height: 0;
 }
 
 /* Project Cards */
@@ -205,7 +212,9 @@ h1 {
   position: relative;
   flex: 1;
   min-width: 0;
-  height: clamp(240px, 30vh, 340px);
+  height: 100%;
+  min-height: 260px;
+  max-height: 400px;
   border-radius: 22px;
   text-decoration: none;
   overflow: hidden;
@@ -336,6 +345,7 @@ h1 {
   animation: fadeIn 0.6s ease-out forwards;
   animation-delay: 0.25s;
 }
+
 
 
 
