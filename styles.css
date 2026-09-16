@@ -4,521 +4,425 @@
   box-sizing: border-box;
 }
 
-/* Focus-visible styles for accessibility */
-:focus-visible {
-  outline: 3px solid #07c;
-  outline-offset: 2px;
-  border-radius: 6px;
-}
-
-a:focus-visible,
-button:focus-visible,
-.card:focus-visible {
-  outline: 3px solid rgba(0, 123, 255, 0.9);
-  outline-offset: 3px;
-}
-
-/* Card entrance animation */
-@keyframes cardEnter {
-  from {
-    opacity: 0;
-    transform: translateY(12px) scale(0.995);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-.card {
-  transition:
-    transform 260ms ease,
-    opacity 260ms ease;
-  opacity: 0.95;
-}
-.card.in-view {
-  animation: cardEnter 320ms ease both;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .card {
-    transition: none;
-    animation: none !important;
-  }
-}
-
-/* Main content card — made mobile-first, removed fixed min-width, use tokens for spacing and colors */
-.FG {
-  /* for the main content block */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: var(--card-bg); /* use design token */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
-  height: auto; /* allow natural height */
-  max-height: calc(100vh - 2 * var(--gap-md)); /* fit within viewport with padding margin */
-  overflow-y: auto; /* scroll if content exceeds viewport */
-  /* clamp width to avoid overflowing narrow viewports and keep a sensible max */
-  width: clamp(280px, 90%, var(--container-max));
-  max-width: 98%;
-  border-radius: 16px;
-  font-family: 'Nunito Sans', sans-serif;
-  padding: var(--gap-lg);
-  margin: var(--gap-md) auto;
-  min-width: 0; /* allow flex children to shrink instead of forcing overflow */
-  position: relative; /* establish a local stacking context */
-}
-
-/* Very unusual aspect ratios (e.g., embedded browser panels): allow full scroll without height constraint */
-@media (max-height: 600px) {
-  .FG {
-    max-height: none;
-  }
-  .card {
-    height: 300px;
-  }
-}
-
-/* Larger screens: slightly bigger card and spacing */
-@media (min-width: 900px) {
-  .FG {
-    padding: 40px;
-  }
-}
-
-/* Ensure inner containers don't force overflow */
-.container-3 {
-  max-width: 100%;
-  box-sizing: border-box;
-}
-.container-2 {
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* Prevent horizontal page scroll caused by accidental wide elements */
 html,
 body {
+  height: 100%;
+  height: 100dvh;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Nunito Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--nearwhite);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  height: 100dvh;
+  padding: 16px;
+  background-color: var(--offGray);
+  background-image: url('src/bridge-1.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* Glassmorphism Smartphone Frame (Fills Viewport Height on All Devices) */
+.FG {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 760px;
+  height: 100%;
+  max-height: calc(100dvh - 32px);
+  flex-shrink: 0;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: 36px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  padding: 36px 32px 32px 32px;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
-/* Small screens: aggressive scaling to fit within viewport */
-@media (max-width: 480px) {
-  /* Reduce paddings and type for small viewports */
-  :root {
-    --gap-lg: 8px;
-    --gap-md: 6px;
-  }
-  .FG {
-    padding: 10px;
-    max-height: none; /* allow container to fit all contents without constraint */
-  }
-  h1 {
-    font-size: 1rem;
-    margin-top: 4px;
-  }
-  p {
-    font-size: 0.75rem;
-    margin: 2px 0;
-  }
-
-  /* Aggressive scale down for mobile fit */
-  .pfp {
-    width: 4.5rem;
-    height: 4.5rem;
-  }
-  .imglink {
-    max-width: 36px;
-    max-height: 36px;
-  }
-
-  /* Compact project cards */
-  .card {
-    height: 160px;
-    width: min(220px, 30vw);
-  }
-  
-  hr {
-    margin-top: 8px;
-    margin-bottom: 8px;
-  }
+/* Subtle Glass Scrollbar */
+.FG::-webkit-scrollbar {
+  width: 6px;
 }
 
-/* Extra-small very narrow screens */
-@media (max-width: 360px) {
-  .FG {
-    padding: 8px;
-  }
-  .card {
-    height: 140px;
-    width: min(180px, 28vw);
-  }
-  .imglink {
-    max-width: 32px;
-    max-height: 32px;
-  }
-  h1 {
-    font-size: 0.9rem;
-  }
-  p {
-    font-size: 0.7rem;
-  }
-
-/* Icon container — allow horizontal scrolling without showing scrollbars so icons can spill/scroll on small viewports. Keep layout centered and prevent children from shrinking. */
-.container-1 {
-  width: 100%;
-  height: 100%;
-  padding: 16px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  gap: var(--gap-sm);
-  overflow-x: auto; /* allow horizontal overflow when needed */
-  overflow-y: hidden; /* prevent vertical scrollbar */
-  -ms-overflow-style: none; /* IE/Edge */
-  scrollbar-width: none; /* Firefox */
-}
-.container-1::-webkit-scrollbar {
-  display: none;
-}
-.container-1 > * {
-  flex: 0 0 auto;
-} /* prevent children from shrinking */
-
-.container-2 {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  padding: 5px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-basis: content;
+.FG::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-.container-3 {
-  width: 100%;
-  height: 100%;
+.FG::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.FG::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Hero Section */
+.hero-section {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  flex-basis: content;
-}
-
-/* .img1 {
-  background-image: url("src/bridge-1.jpg");
-  background-color: #333;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: top left;
-} */
-
-/* Project cards — responsive sizes and improved contrast */
-/* NOTE: .card is declared in multiple places in this stylesheet. The later declaration (scroll-snap section) refines snap/flex behaviour and overrides width/height; prefer consolidating to avoid confusion. */
-.card {
-  height: 300px;
-  width: min(260px, 40vw);
-  border-radius: 16px;
-
-  /* Layout & sizing (responsive) */
-  flex: 0 0 auto; /* non-shrinking flex item */
-  scroll-snap-align: center; /* center snap in carousel */
-  will-change: transform, opacity;
-  padding: 10px;
-  background-color: var(--nearwhite);
-  background-size: cover;
-  background-attachment: scroll;
-  background-position: center;
-  margin: auto;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-  text-decoration: none;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
-  font-size: 1.1rem;
-  color: #fff;
-}
-
-.card:hover {
-  transform: translateZ(0) scale(1.02);
-  z-index: 6;
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.6);
-  transition:
-    transform 160ms ease,
-    box-shadow 160ms ease;
-}
-
-/* .cardText {
   text-align: center;
-  font-size: 28px;
-  font-family: Arial;
-  color: #222;
-  text-shadow: #222;
-  text-decoration-line: none;
-    position: relative;
-    bottom: 20px;
-} */
-
-/* Allow visual overflow so cards can pop outside rounded container edges */
-.container-2 {
-  overflow: visible;
-}
-.FG {
-  overflow: visible;
-}
-
-.carousel {
-  display: flex;
-  flex-direction: row;
-  padding: 0px;
-  gap: 1rem;
-  justify-content: flex-start;
-  margin: 0 auto;
-  overflow-x: auto;
-  overflow-y: hidden; /* prevent vertical scrollbars */
-  scroll-snap-type: x mandatory; /* enable scroll snapping */
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-  padding-bottom: 12px; /* avoid clipping shadows */
-}
-
-/* Hide native scrollbar while keeping scroll functionality (cross-browser). Keep a single authoritative setting to avoid duplication. */
-.carousel {
-  -ms-overflow-style: none; /* IE/Edge */
-  scrollbar-width: none; /* Firefox */
-}
-.carousel::-webkit-scrollbar {
-  display: none;
-} /* Chrome/Safari */
-
-/* Cards are non-shrinking flex items and snap to center */
-/* .card consolidation note: rules moved earlier in the file to a single authoritative declaration. */
-
-/* Navigation buttons overlaid */
-.carousel-prev,
-.carousel-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: none; /* shown when overflow */
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 5;
-}
-.carousel-prev {
-  left: 8px;
-}
-.carousel-next {
-  right: 8px;
-}
-
-/* Ensure the container that holds carousel is positioned for absolute buttons */
-.container-2 {
-  position: relative;
-}
-
-@media (max-width: 480px) {
-  .card {
-    height: 260px;
-  }
-  .carousel-prev,
-  .carousel-next {
-    display: none; /* hide nav buttons on mobile to prevent overlap */
-  }
-}
-
-.imglink {
-  background-color: rgba(0, 0, 0, 0);
-  padding: 0px;
-  border-radius: 15px;
-  max-width: 100px;
-  max-height: 100px;
-  /* combine filters: invert colors then add a subtle drop-shadow. Previously two filter declarations would cause the latter to overwrite the former. */
-  filter: invert(1) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
-  flex: 0 0 auto; /* prevent shrinking so layout stays consistent */
-}
-
-.imglink:hover {
-  transform: translateZ(0) scale(1.03);
-  transition: transform 100ms ease;
+  width: 100%;
+  flex-shrink: 0;
 }
 
 .pfp {
+  width: 145px;
+  height: 145px;
   border-radius: 50%;
-  /* make avatar responsive while keeping a square aspect and covering the box */
-  width: clamp(6rem, 28vw, 10rem);
-  aspect-ratio: 1 / 1; /* ensures square box */
-  object-fit: cover; /* crop the image to fill the circle without distortion */
-  display: block;
-  margin: auto;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .pfp:hover {
-  transform: scale(1.03);
-  transition-duration: 120ms;
+  transform: scale(1.04);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
 }
 
-/* CTA removed per user request */
-.bscu-card {
-  /* Use optimized webp wordmark; ensure it doesn't repeat and is contained */
-  background-image: url('src/bscu-logo-w.webp');
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-top: 14px;
+  margin-bottom: 4px;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-title {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  margin-bottom: 18px;
+}
+
+/* Social Buttons - Minimal Borderless Icons */
+.social-links {
+  display: flex;
+  gap: 22px;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: transparent;
+  border: none;
+  padding: 4px;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.social-btn:hover {
+  background: transparent;
+  transform: scale(1.1);
+}
+
+.imglink {
+  width: 48px;
+  height: 48px;
+  filter: invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+  transition: filter 0.2s ease;
+}
+
+.social-btn:hover .imglink {
+  filter: invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.85));
+}
+
+/* Section Divider Badge */
+.divider-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.divider-wrapper::before {
+  content: '';
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+}
+
+.section-badge {
+  position: relative;
+  z-index: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: rgba(18, 22, 30, 0.9);
+  padding: 6px 20px;
+  border-radius: 20px;
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(8px);
+}
+
+/* Projects Grid / Carousel (Centered Vertically Between 'PROJECTS' Badge and Bottom of .FG) */
+.projects-section {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 0;
+  padding: 12px 0;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  max-height: 100%;
+}
+
+/* Project Cards - Wide Horizontal Banners with Minimal Interaction */
+.card {
+  position: relative;
+  width: 100%;
+  height: clamp(105px, 15vh, 155px);
+  flex-shrink: 0;
+  border-radius: 22px;
+  text-decoration: none;
+  overflow: hidden;
+  background-size: cover;
   background-position: center;
-  background-size: calc(100% - 20px);
+  border: 1px solid var(--card-border);
+  transition: filter 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: row;
+  opacity: 1;
+}
+
+.card:hover {
+  filter: brightness(1.12);
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+  transform: translateY(-2px);
+}
+
+
+.drem-card {
+  background-image: url('src/drem-crop.jpg');
+}
+
+.drem-card .card-overlay {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.35) 55%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.drem-card:hover .card-overlay {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 55%, rgba(0, 0, 0, 0.85) 100%);
+}
+
+.bscu-card {
+  background-image: url('src/bscu-logo-w.png');
+  background-color: #18191c;
+  background-position: center left 24px;
+  background-size: contain;
   background-repeat: no-repeat;
-  background-color: #F5F5F5; /* SCU neutral light */
 }
 
 .flourish-card {
-  /* Use the white variant optimized to WebP so it renders on darker backgrounds */
-  background-image: url('src/flourish-wordmark-w.webp');
-  background-color: beige;
-  background-position: center;
-  background-size: calc(100% - 20px);
+  background-image: url('src/flourish-wordmark-w.png');
+  background-color: #1a221d;
+  background-position: center left 24px;
+  background-size: contain;
   background-repeat: no-repeat;
 }
 
-.wordmark {
-  display: block;
-  margin: 10px;
-  background-color: none;
-  height: 30px;
-  width: 160px;
-  filter: invert(0.85);
-  filter: drop-shadow(1);
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%);
+  transition: background 0.3s ease;
 }
 
+.card:hover .card-overlay {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.9) 100%);
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 100%;
+  width: 100%;
+}
+
+.wordmark {
+  max-height: 42px;
+  max-width: 42%;
+  width: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+}
+
+.bscu-card .card-content,
+.flourish-card .card-content {
+  justify-content: flex-end;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  text-align: right;
+  margin-top: 0;
+  min-width: 0;
+}
+
+.card-title {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.card-tag {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  background: rgba(0, 0, 0, 0.45);
+  padding: 4px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+}
+
+
+/* Animations */
 @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInOpacity {
+  from {
+    opacity: 0;
+  }
   to {
     opacity: 1;
   }
 }
 
-.fade-in-0 {
-  opacity: 0;
-  animation: fadeIn 0.3s ease-in forwards;
-  animation-delay: 0s;
-}
-
-.fade-in-1 {
-  opacity: 0;
-  animation: fadeIn 0.2s ease-in forwards;
-  animation-delay: 0.2s;
-}
-
-.fade-in-2 {
-  opacity: 0;
-  animation: fadeIn 0.2s ease-in forwards;
-  animation-delay: 0.3s;
-}
-
-/*-------------------------------------------*/
-
-html,
-body {
-  height: 100%;
-  width: 100%;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: auto;
-  color: var(--text); /* use design token for clear contrast */
-  background-color: var(--offGray);
-}
-
-/* Background image replaced by responsive <picture> element inserted in the DOM */
-.bg-img {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2; /* behind the card */
-  pointer-events: none;
-  filter: contrast(0.95) brightness(0.6); /* subtle dimming to improve foreground contrast */
-}
-
-/* Lightweight overlay to ensure text readability on varied imagery */
-.bg-overlay {
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.35));
-  z-index: -1;
-  pointer-events: none;
-}
-
-@media (min-width: 900px) {
-  .bg-img {
-    filter: contrast(1) brightness(0.7);
+@media (prefers-reduced-motion: no-preference) {
+  .fade-in-0 {
+    animation: fadeIn 0.4s ease-out forwards;
   }
+
+  .fade-in-1 {
+    animation: fadeIn 0.5s ease-out forwards;
+    animation-delay: 0.1s;
+  }
+
+  .fade-in-2 {
+    animation: fadeIn 0.6s ease-out forwards;
+    animation-delay: 0.25s;
+  }
+
+  /* Cascading card reveal, staggered on top of the section's own fade-in.
+     Opacity-only: .card:hover also animates transform, and a forwards-filled
+     animation touching transform would permanently pin it, blocking hover. */
+  .card {
+    opacity: 0;
+    animation: fadeInOpacity 0.45s ease-out forwards;
+  }
+
+  .carousel .card:nth-child(1) {
+    animation-delay: 0.3s;
+  }
+
+  .carousel .card:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+
+  .carousel .card:nth-child(3) {
+    animation-delay: 0.5s;
+  }
+
 }
 
-h1,
-h2 {
-  font-size: 52px;
-  font-weight: 500;
-  margin-top: 10px;
-}
-
-p {
-  font-size: 28px;
-}
-
-hr {
-  width: 80%;
-  height: 4px;
+/* Toast (e.g. "Email copied") */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 32px;
+  transform: translate(-50%, 8px);
+  z-index: 10;
+  background: rgba(18, 22, 30, 0.92);
   color: var(--nearwhite);
-  background-color: var(--nearwhite);
-  margin-top: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-a {
-  background-color: rgba(0, 0, 0, 0);
-  padding: 0px;
-  border-radius: 10%;
-  display: inline-block;
-  margin-top: 30px;
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
 }
 
-/*
-a:link, a:visited {
-    background-color: #333;
-    color: white;
-    padding: 15px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-family: 'Arial';
-    border-radius: 15px;
-    margin: 10px
-  }
-  
-  a:hover, a:active {
-    background-color: #111111;
-  }
-  */
 
-iframe {
-  max-width: 100%;
-  max-height: 100%;
-  margin: 0px;
-  border-radius: 15px;
-}
 
-footer {
-  position: relative;
-  bottom: 10px;
-  justify-content: center;
-}

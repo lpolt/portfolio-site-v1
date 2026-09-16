@@ -1,228 +1,115 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en-US">
-  <head>
-    <title>Poltorak.dev</title>
-    <meta
-      name="author"
-      content="Luke Poltorak"
-    />
-    <meta
-      name="description"
-      content="Luke Poltorak is a seasoned web developer, using his experience to make beautiful and intuitive apps"
-    />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="src/laptop-96.png"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="vars.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="styles.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="utility.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="media.css"
-    />
-    <link
-      rel="preconnect"
-      href="https://fonts.googleapis.com"
-    />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Preload LCP candidate: AVIF preferred for supported browsers. imagesrcset provides candidates for browsers that honor imagesrcset on preload. This helps reduce LCP by hinting the browser early. -->
-    <link
-      rel="preload"
-      as="image"
-      href="src/bridge-1920.avif"
-      imagesrcset="src/bridge-1920.avif 1920w, src/bridge-1280.avif 1280w"
-      imagesizes="100vw"
-    />
-  </head>
 
-  <body class="fade-in-0">
-    <!-- Responsive background image (AVIF -> WebP -> fallback). Using a <picture> element ensures the browser can pick the best supported format and lets the DOM contain the LCP image for preload and better measurement. -->
-    <picture
-      class="bg-picture"
-      aria-hidden="true"
-    >
-      <source
-        type="image/avif"
-        srcset="
-          src/bridge-1920.avif 1920w,
-          src/bridge-1600.avif 1600w,
-          src/bridge-1280.avif 1280w,
-          src/bridge-1024.avif 1024w
-        "
-        sizes="100vw"
-      />
-      <source
-        type="image/webp"
-        srcset="
-          src/bridge-1920.webp 1920w,
-          src/bridge-1600.webp 1600w,
-          src/bridge-1280.webp 1280w,
-          src/bridge-1024.webp 1024w
-        "
-        sizes="100vw"
-      />
-      <img
-        class="bg-img"
-        src="src/bridge-1280.webp"
-        alt=""
-      />
-    </picture>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Luke Poltorak - Web Developer, CTO, and Designer Portfolio.">
+    <title>Poltorak.dev | Luke Poltorak</title>
+    <link rel="canonical" href="https://poltorak.dev/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Luke Poltorak | Web Developer, CTO, Designer">
+    <meta property="og:description" content="Luke Poltorak - Web Developer, CTO, and Designer Portfolio.">
+    <meta property="og:url" content="https://poltorak.dev/">
+    <meta property="og:image" content="https://poltorak.dev/src/square-mug-2.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Luke Poltorak | Web Developer, CTO, Designer">
+    <meta name="twitter:description" content="Luke Poltorak - Web Developer, CTO, and Designer Portfolio.">
+    <meta name="twitter:image" content="https://poltorak.dev/src/square-mug-2.jpg">
+    <meta name="theme-color" content="#12161e">
+    <link rel="preload" as="image" href="src/bridge-1.jpg">
+    <link rel="icon" type="image/x-icon" href="src/laptop-96.png">
+    <link rel="apple-touch-icon" href="src/apple-touch-icon.png">
+    <link rel="stylesheet" type="text/css" href="vars.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="media.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Luke Poltorak",
+      "url": "https://poltorak.dev/",
+      "jobTitle": ["Web Developer", "CTO", "Designer"],
+      "sameAs": [
+        "https://github.com/lpolt",
+        "https://www.linkedin.com/in/luke-poltorak/"
+      ]
+    }
+    </script>
+</head>
 
-    <div class="FG fade-in-1">
-      <div class="mt-4"></div>
+<body class="fade-in-0">
 
-      <div class="container-3 fade-in-2">
-        <!-- Profile image: responsive <picture> with AVIF/WebP fallbacks and a small LQIP for perceived performance. Keep a meaningful alt for accessibility. -->
-        <picture
-          class="pfp-picture"
-          aria-hidden="false"
-        >
-          <source
-            type="image/avif"
-            srcset="
-              src/pfp-768.avif 768w,
-              src/pfp-480.avif 480w,
-              src/pfp-320.avif 320w
-            "
-            sizes="(min-width:900px) 10rem, 28vw"
-          />
-          <source
-            type="image/webp"
-            srcset="
-              src/pfp-768.webp 768w,
-              src/pfp-480.webp 480w,
-              src/pfp-320.webp 320w
-            "
-            sizes="(min-width:900px) 10rem, 28vw"
-          />
-          <img
-            class="pfp"
-            src="src/pfp-320.webp"
-            alt="Luke Poltorak portrait"
-            loading="lazy"
-          />
-        </picture>
+    <main class="FG fade-in-1">
 
-        <h1>Luke Poltorak</h1>
+        <div class="hero-section fade-in-2">
+            <img class="pfp" src="src/square-mug-2.jpg" alt="Luke Poltorak headshot">
 
-        <div class="mt-2"></div>
+            <h1>Luke Poltorak</h1>
 
-        <p>Web Developer | CTO | Designer</p>
+            <p class="hero-title">Web Developer | CTO | Designer</p>
 
-        <address>
-          <div class="container-1">
-            <a class="" href="https://github.com/lpolt" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in new tab)">
-              <img
-                class="imglink"
-                src="src/icons8-github-240.svg"
-                loading="lazy"
-              />
-            </a>
-            <a
-              class=""
-              href="mailto:luke.j.poltorak@gmail.com"
-            >
-              <img
-                class="imglink"
-                src="src/icons8-gmail-144.svg"
-                loading="lazy"
-              />
-            </a>
-            <a class="" href="https://www.linkedin.com/in/luke-poltorak/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)">
-              <img
-                class="imglink"
-                src="src/icons8-linkedin-250.svg"
-                loading="lazy"
-              />
-            </a>
-          </div>
-        </address>
-      </div>
-
-      <hr class="fade-in-2" />
-
-      <div class="mt-1"></div>
-      <p
-        id="projects"
-        class="mt-4 mb-4 fade-in-2"
-      >
-        Projects
-      </p>
-
-      <div class="mt-1"></div>
-
-      <!-- Projects carousel container. Uses scroll-snap for single-row layout and data-bgset for responsive background selection via JS. Cards are focusable and keyboard-accessible. -->
-      <div class="container-2 fade-in-2">
-        <button
-          class="carousel-prev"
-          aria-label="Previous projects"
-        >
-          ‹
-        </button>
-        <div
-          class="carousel"
-          role="list"
-        >
-          <a class="card" role="listitem" data-bgset="src/drem-1024.webp 1024w, src/drem-768.webp 768w, src/drem-480.webp 480w, src/drem-320.webp 320w" href="https://github.com/Drem-Labs" target="_blank" rel="noopener noreferrer" aria-label="Drem Labs project (opens in new tab)">
-            <img
-              class="wordmark"
-              src="src/Drem-Labs-Wordmark.webp"
-              loading="lazy"
-              alt="Drem Labs wordmark"
-            />
-          </a>
-
-          <a class="card bscu-card" role="listitem" href="https://www.scu.edu/engineering/beyond-the-classroom/student-organizations/blockchainscu/" target="_blank" rel="noopener noreferrer" aria-label="BlockChainSCU project (opens in new tab)">
-          </a>
-
-          <a class="card flourish-card" role="listitem" href="https://ethglobal.com/showcase/flourish-connecting-lens-frens-instantly-zoth4" target="_blank" rel="noopener noreferrer" aria-label="Flourish project (opens in new tab)">
-          </a>
+            <nav class="social-links" aria-label="Social Profiles">
+                <a class="social-btn" href="https://github.com/lpolt" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+                    <img class="imglink" src="src/icons8-github-240.svg" alt="GitHub">
+                </a>
+                <a class="social-btn" href="mailto:luke.j.poltorak@gmail.com" aria-label="Copy Email Address">
+                    <img class="imglink" src="src/icons8-gmail-144.svg" alt="Email">
+                </a>
+                <a class="social-btn" href="https://www.linkedin.com/in/luke-poltorak/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+                    <img class="imglink" src="src/icons8-linkedin-250.svg" alt="LinkedIn">
+                </a>
+            </nav>
         </div>
-        <button
-          class="carousel-next"
-          aria-label="Next projects"
-        >
-          ›
-        </button>
-      </div>
 
-      <div class="mt-2"></div>
-    </div>
+        <div class="divider-wrapper fade-in-2">
+            <h2 id="projects-heading" class="section-badge">Projects</h2>
+        </div>
 
-    <!-- Lazy loader picks the best background candidate (data-bgset) at intersection time. carousel-controls adds keyboard, button, and entrance animations. -->
-    <script
-      src="scripts/lazy-load-images.js"
-      defer
-    ></script>
-    <script
-      src="scripts/carousel-controls.js"
-      defer
-    ></script>
-  </body>
-</html>
+        <section class="projects-section fade-in-2" aria-labelledby="projects-heading">
+            <div class="carousel">
+
+                <a class="card drem-card" href="https://github.com/Drem-Labs" target="_blank" rel="noopener noreferrer" aria-label="Drem Labs project on GitHub">
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <img class="wordmark" src="src/Drem-Labs-Wordmark.png" alt="Drem Labs logo">
+                        <div class="card-info">
+                            <span class="card-title">Drem Labs</span>
+                            <span class="card-tag">DeFi Protocol</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a class="card bscu-card" href="https://www.scu.edu/engineering/beyond-the-classroom/student-organizations/blockchainscu/" target="_blank" rel="noopener noreferrer" aria-label="Blockchain at Santa Clara University project">
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <div class="card-info">
+                            <span class="card-title">Blockchain@SCU</span>
+                            <span class="card-tag">Student Org</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a class="card flourish-card" href="https://ethglobal.com/showcase/flourish-connecting-lens-frens-instantly-zoth4" target="_blank" rel="noopener noreferrer" aria-label="Flourish ETHGlobal project showcase">
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <div class="card-info">
+                            <span class="card-title">Flourish</span>
+                            <span class="card-tag">Lens Protocol</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

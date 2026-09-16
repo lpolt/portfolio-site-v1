@@ -1,17 +1,20 @@
 {
-  "name": "portfolio-site-images",
+  "name": "portfolio-site-v1",
   "version": "1.0.0",
-  "private": true,
+  "main": "index.js",
   "scripts": {
-    "convert-images": "node scripts/convert-images.js",
-    "convert-drem": "node scripts/convert-drem.js",
-    "check-images": "node scripts/check-images.js",
-    "dev": "npx http-server . -p 8008 --silent",
-    "optimize-images": "node scripts/optimize-images.js",
-    "format": "prettier --write \"**/*.{js,css,html,md,json}\""
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx http-server . -p 8008 --silent"
   },
-  "devDependencies": {
-    "sharp": "^0.35.3",
-    "prettier": "^3.9.0"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lpolt/portfolio-site-v1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lpolt/portfolio-site-v1/issues"
+  },
+  "homepage": "https://github.com/lpolt/portfolio-site-v1#readme",
+  "description": ""
 }
