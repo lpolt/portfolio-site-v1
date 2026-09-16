@@ -235,6 +235,14 @@ h1 {
   background-image: url('src/drem-crop.jpg');
 }
 
+.drem-card .card-overlay {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.35) 55%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.drem-card:hover .card-overlay {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 55%, rgba(0, 0, 0, 0.85) 100%);
+}
+
 .bscu-card {
   background-image: url('src/bscu-logo-w.png');
   background-color: #18191c;
@@ -270,13 +278,16 @@ h1 {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
   height: 100%;
   width: 100%;
 }
 
 .wordmark {
   max-height: 42px;
+  max-width: 42%;
   width: auto;
+  flex-shrink: 0;
   object-fit: contain;
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
 }
@@ -284,7 +295,9 @@ h1 {
 .bscu-wordmark,
 .flourish-wordmark {
   max-height: 50px;
+  max-width: 42%;
   width: auto;
+  flex-shrink: 0;
   object-fit: contain;
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
 }
@@ -296,9 +309,14 @@ h1 {
   gap: 6px;
   text-align: right;
   margin-top: 0;
+  min-width: 0;
 }
 
 .card-title {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-size: 1.15rem;
   font-weight: 700;
   color: #ffffff;
@@ -306,6 +324,10 @@ h1 {
 }
 
 .card-tag {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
