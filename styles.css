@@ -220,16 +220,18 @@ h1 {
   background-size: cover;
   background-position: center;
   border: 1px solid var(--card-border);
-  transition: filter 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: filter 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: row;
+  opacity: 1;
 }
 
 .card:hover {
   filter: brightness(1.12);
   border-color: var(--glass-border-hover);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+  transform: translateY(-2px);
 }
 
 
@@ -350,20 +352,77 @@ h1 {
   }
 }
 
-.fade-in-0 {
-  animation: fadeIn 0.4s ease-out forwards;
+@keyframes fadeInOpacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.fade-in-1 {
-  animation: fadeIn 0.5s ease-out forwards;
-  animation-delay: 0.1s;
+@media (prefers-reduced-motion: no-preference) {
+  .fade-in-0 {
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+
+  .fade-in-1 {
+    animation: fadeIn 0.5s ease-out forwards;
+    animation-delay: 0.1s;
+  }
+
+  .fade-in-2 {
+    animation: fadeIn 0.6s ease-out forwards;
+    animation-delay: 0.25s;
+  }
+
+  /* Cascading card reveal, staggered on top of the section's own fade-in.
+     Opacity-only: .card:hover also animates transform, and a forwards-filled
+     animation touching transform would permanently pin it, blocking hover. */
+  .card {
+    opacity: 0;
+    animation: fadeInOpacity 0.45s ease-out forwards;
+  }
+
+  .carousel .card:nth-child(1) {
+    animation-delay: 0.3s;
+  }
+
+  .carousel .card:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+
+  .carousel .card:nth-child(3) {
+    animation-delay: 0.5s;
+  }
+
 }
 
-.fade-in-2 {
-  animation: fadeIn 0.6s ease-out forwards;
-  animation-delay: 0.25s;
+/* Toast (e.g. "Email copied") */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 32px;
+  transform: translate(-50%, 8px);
+  z-index: 10;
+  background: rgba(18, 22, 30, 0.92);
+  color: var(--nearwhite);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
 
 
 

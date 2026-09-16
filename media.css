@@ -93,4 +93,25 @@
     background-image: url('src/flourish-wordmark-w.png');
     background-size: 70%;
   }
+}
+
+/* Short-screen phones (e.g. iPhone SE, budget Android): tighten vertical
+   spacing so all three cards still fit without an internal scroll. */
+@media (max-height: 700px) {
+  .FG {
+    padding: 16px 16px;
+    gap: 10px;
+  }
+
+  .divider-wrapper {
+    margin: 10px 0 6px 0;
+  }
+
+  .carousel {
+    gap: 8px;
+  }
+
+  .card {
+    height: clamp(78px, 13vh, 130px);
+  }
 }
