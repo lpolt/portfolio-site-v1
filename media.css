@@ -56,7 +56,7 @@
 
   .card {
     width: 100%;
-    height: clamp(95px, 14vh, 140px);
+    height: clamp(91px, 14vh, 136px);
     border-radius: 18px;
     flex-shrink: 0;
   }
