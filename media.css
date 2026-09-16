@@ -9,17 +9,17 @@
   .FG {
     height: 100%;
     max-height: calc(100dvh - 24px);
-    padding: 24px 16px;
+    padding: clamp(14px, 2.5vh, 24px) 16px;
     border-radius: 26px;
     justify-content: flex-start;
-    gap: 16px;
+    gap: clamp(8px, 1.8vh, 16px);
   }
 
 
 
   .pfp {
-    width: 135px;
-    height: 135px;
+    width: clamp(95px, 15vh, 135px);
+    height: clamp(95px, 15vh, 135px);
   }
 
   h1 {
@@ -39,7 +39,7 @@
   }
 
   .divider-wrapper {
-    margin: 16px 0 8px 0;
+    margin: clamp(8px, 1.8vh, 16px) 0 clamp(4px, 0.9vh, 8px) 0;
   }
 
   .projects-section {
@@ -49,14 +49,14 @@
 
   .carousel {
     flex-direction: column;
-    gap: 12px;
+    gap: clamp(8px, 1.3vh, 12px);
     width: 100%;
     justify-content: center;
   }
 
   .card {
     width: 100%;
-    height: clamp(91px, 14vh, 136px);
+    height: clamp(78px, 11.5vh, 136px);
     border-radius: 18px;
     flex-shrink: 0;
   }
@@ -92,26 +92,5 @@
   .flourish-card {
     background-image: url('src/flourish-wordmark-w.png');
     background-size: 70%;
-  }
-}
-
-/* Short-screen phones (e.g. iPhone SE, budget Android): tighten vertical
-   spacing so all three cards still fit without an internal scroll. */
-@media (max-height: 700px) {
-  .FG {
-    padding: 16px 16px;
-    gap: 10px;
-  }
-
-  .divider-wrapper {
-    margin: 10px 0 6px 0;
-  }
-
-  .carousel {
-    gap: 8px;
-  }
-
-  .card {
-    height: clamp(78px, 13vh, 130px);
   }
 }
