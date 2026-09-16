@@ -81,8 +81,8 @@ body {
 }
 
 .pfp {
-  width: 130px;
-  height: 130px;
+  width: 145px;
+  height: 145px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid rgba(255, 255, 255, 0.25);
@@ -126,6 +126,8 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 64px;
+  height: 64px;
   background: transparent;
   border: none;
   padding: 4px;
@@ -139,8 +141,8 @@ h1 {
 }
 
 .imglink {
-  width: 28px;
-  height: 28px;
+  width: 48px;
+  height: 48px;
   filter: invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
   transition: filter 0.2s ease;
 }
@@ -292,14 +294,9 @@ h1 {
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
 }
 
-.bscu-wordmark,
-.flourish-wordmark {
-  max-height: 50px;
-  max-width: 42%;
-  width: auto;
-  flex-shrink: 0;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+.bscu-card .card-content,
+.flourish-card .card-content {
+  justify-content: flex-end;
 }
 
 .card-info {
