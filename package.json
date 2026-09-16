@@ -1,0 +1,20 @@
+{
+  "name": "portfolio-site-v1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx http-server . -p 8008 --silent"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lpolt/portfolio-site-v1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lpolt/portfolio-site-v1/issues"
+  },
+  "homepage": "https://github.com/lpolt/portfolio-site-v1#readme",
+  "description": ""
+}
